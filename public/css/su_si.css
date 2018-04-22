@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+#login {
+    background-image: url("../dummy/login.jpg");
+    background-size: 1350px;
+}
+#register {
+    background-image: url("../dummy/register.jpg");
+    background-size: 1350px;
+}
+#reset {
+    background-image: url("../dummy/reset.jpg");
+    background-size: 1340px;
+}
+.sign{
+	padding: 6px 12px;
+	font-size: 16px;
+	margin: 4px 2px;
+	color: white;
+	text-decoration: none;
+}
+
+.sign:hover{
+	background-color: #fd8b68;
+	color: white;
+	text-decoration: none;
+}
+
+#forget{
+    color: white;
+}

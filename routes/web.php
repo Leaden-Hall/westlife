@@ -18,3 +18,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/about', function() {
+  return view('about');
+});
+
+Route::get('/gallery', function() {
+  return view('gallery');
+});
+
+Route::get('/album', function() {
+  return view('album/index');
+});
+
+Route::get('/blog', function() {
+  return view('blog/index');
+});
+
+Route::get('/contact', function() {
+  return view('contact');
+});
+
+Route::get('/verify', function() {
+  return view('verify');
+});

@@ -1,95 +1,176 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <!-- carousel hero section-->
+    <section class="hero">
+        <div class="slider">
+            <ul class="slides">
+                <li class="lazy-bg" data-background="dummy/slide-1.jpg">
+                    <div class="container">
+                        <h2 class="slide-title">Header goes here</h2>
+                        <h3 class="slide-subtitle">Less important text goes here</h3>
+                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Fugiat aliquid minus nemo sed est.</p>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                        <a href="#" class="button cut-corner">Read More</a>
+                    </div>
+                </li>
 
-            .full-height {
-                height: 100vh;
-            }
+                <li class="lazy-bg" data-background="dummy/slide-2.jpg">
+                    <div class="container">
+                        <h2 class="slide-title">Header goes here</h2>
+                        <h3 class="slide-subtitle">Less important text goes here</h3>
+                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Fugiat aliquid minus nemo sed est.</p>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+                        <a href="#" class="button cut-corner">Read More</a>
+                    </div>
+                </li>
 
-            .position-ref {
-                position: relative;
-            }
+                <li class="lazy-bg" data-background="dummy/slide-3.jpg">
+                    <div class="container">
+                        <h2 class="slide-title">Header goes here</h2>
+                        <h3 class="slide-subtitle">Less important text goes here</h3>
+                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Fugiat aliquid minus nemo sed est.</p>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+                        <a href="#" class="button cut-corner">Read More</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+    <!-- quote slider-->
+    <section class="fullwidth-block testimonial-section">
+        <div class="container">
+            <div class="quote-slider">
+                <ul class="slides">
+                    <li>
+                        <blockquote>
+                            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo"</p>
+                            <cite>John Smith</cite>
+                            <span>Corporation CEO, books author</span>
+                        </blockquote>
+                    </li>
+                    <li>
+                        <blockquote>
+                            <p>"Iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo"</p>
+                            <cite>John Smith</cite>
+                            <span>Corporation CEO, books author</span>
+                        </blockquote>
+                    </li>
+                </ul>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+
+
+    <!-- upcoming events section-->
+    <section class="fullwidth-block upcoming-event-section" data-bg-color="#191919">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">Upcoming events</h2>
+
+                <div class="event-nav">
+                    <a class="prev" id="event-prev" href="#"><i class="fa fa-caret-left"></i></a>
+                    <a class="next" id="event-next" href="#"><i class="fa fa-caret-right"></i></a>
+                </div> <!-- .event-nav -->
+
+            </header> <!-- .section-header -->
+            <div class="event-carousel">
+
+                <div class="event">
+                    <div class="entry-date">
+                        <div class="date">23</div>
+                        <span class="month">Jun</span>
+                    </div>
+                    <h2 class="entry-title"><a href="#">Sed et persipiatis unde omnis iste natus</a></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid temporibus quos aspernatur</p>
+                </div> <!-- .event -->
+
+
+                <div class="event">
+                    <div class="entry-date">
+                        <div class="date">23</div>
+                        <span class="month">Jun</span>
+                    </div>
+                    <h2 class="entry-title"><a href="#">Sed et persipiatis unde omnis iste natus</a></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid temporibus quos aspernatur</p>
+                </div> <!-- .event -->
+
+
+                <div class="event">
+                    <div class="entry-date">
+                        <div class="date">23</div>
+                        <span class="month">Jun</span>
+                    </div>
+                    <h2 class="entry-title"><a href="#">Sed et persipiatis unde omnis iste natus</a></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid temporibus quos aspernatur</p>
+                </div> <!-- .event -->
+
+
+                <div class="event">
+                    <div class="entry-date">
+                        <div class="date">23</div>
+                        <span class="month">Jun</span>
+                    </div>
+                    <h2 class="entry-title"><a href="#">Sed et persipiatis unde omnis iste natus</a></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid temporibus quos aspernatur </p>
+                </div> <!-- .event -->
+
+
+                <div class="event">
+                    <div class="entry-date">
+                        <div class="date">23</div>
+                        <span class="month">Jun</span>
+                    </div>
+                    <h2 class="entry-title"><a href="#">Sed et persipiatis unde omnis iste natus</a></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid temporibus quos aspernatur </p>
+                </div> <!-- .event -->
+
+            </div> <!-- .event-carousel -->
+        </div> <!-- .container -->
+    </section>
+
+
+    <!-- .why-chooseus-section -->
+    <section class="fullwidth-block why-chooseus-section">
+        <div class="container">
+            <h2 class="section-title">Why choose us?</h2>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature">
+                        <figure class="cut-corner">
+                            <img src="dummy/medium-image-1.jpg" alt="">
+                        </figure>
+                        <h3 class="feature-title">Similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum</h3>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                    </div> <!-- .feature -->
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature">
+                        <figure class="cut-corner">
+                            <img src="dummy/medium-image-2.jpg" alt="">
+                        </figure>
+                        <h3 class="feature-title">Similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum</h3>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                    </div> <!-- .feature -->
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature">
+                        <figure class="cut-corner">
+                            <img src="dummy/medium-image-3.jpg" alt="">
+                        </figure>
+                        <h3 class="feature-title">Similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum</h3>
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                    </div> <!-- .feature -->
+                </div>
+
+            </div>
+        </div> <!-- .container -->
+    </section>
+@endsection
+
