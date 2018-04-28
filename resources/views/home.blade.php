@@ -1,33 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Original login site -->
-{{--<div class="container">--}}
-    {{--<div class="row justify-content-center">--}}
-        {{--<div class="col-md-8">--}}
-            {{--<div class="card">--}}
-                {{--<div class="card-header">Dashboard</div>--}}
-
-                {{--<div class="card-body">--}}
-                    {{--@if (session('status'))--}}
-                        {{--<div class="alert alert-success">--}}
-                            {{--{{ session('status') }}--}}
-                        {{--</div>--}}
-                    {{--@endif--}}
-
-                    {{--You are logged in!--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
-
 
     <!-- carousel hero section-->
     <section class="hero">
         <div class="slider">
             <ul class="slides">
-                <li class="lazy-bg" data-background="dummy/slide-1.jpg">
+                <li class="lazy-bg" data-background="images/slide-1.jpg">
                     <div class="container">
                         <h2 class="slide-title">Header goes here</h2>
                         <h3 class="slide-subtitle">Less important text goes here</h3>
@@ -37,7 +16,7 @@
                     </div>
                 </li>
 
-                <li class="lazy-bg" data-background="dummy/slide-2.jpg">
+                <li class="lazy-bg" data-background="images/slide-2.jpg">
                     <div class="container">
                         <h2 class="slide-title">Header goes here</h2>
                         <h3 class="slide-subtitle">Less important text goes here</h3>
@@ -47,7 +26,7 @@
                     </div>
                 </li>
 
-                <li class="lazy-bg" data-background="dummy/slide-3.jpg">
+                <li class="lazy-bg" data-background="images/slide-3.jpg">
                     <div class="container">
                         <h2 class="slide-title">Header goes here</h2>
                         <h3 class="slide-subtitle">Less important text goes here</h3>
@@ -163,7 +142,7 @@
                 <div class="col-md-4">
                     <div class="feature">
                         <figure class="cut-corner">
-                            <img src="dummy/medium-image-1.jpg" alt="">
+                            <img src="images/medium-image-1.jpg" alt="">
                         </figure>
                         <h3 class="feature-title">Similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum</h3>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
@@ -173,7 +152,7 @@
                 <div class="col-md-4">
                     <div class="feature">
                         <figure class="cut-corner">
-                            <img src="dummy/medium-image-2.jpg" alt="">
+                            <img src="images/medium-image-2.jpg" alt="">
                         </figure>
                         <h3 class="feature-title">Similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum</h3>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
@@ -183,7 +162,7 @@
                 <div class="col-md-4">
                     <div class="feature">
                         <figure class="cut-corner">
-                            <img src="dummy/medium-image-3.jpg" alt="">
+                            <img src="images/medium-image-3.jpg" alt="">
                         </figure>
                         <h3 class="feature-title">Similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum</h3>
                         <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>

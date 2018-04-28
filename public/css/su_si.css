@@ -1,8 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 #login {
-    background-image: url("../dummy/login.jpg");
-    background-size: 1350px;
+		background-color: transparent;
+    ;
+
 }
 #register {
     background-image: url("../dummy/register.jpg");

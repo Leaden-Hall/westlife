@@ -10,20 +10,22 @@
 
     <title>Westlife</title>
 
+    <link rel="icon" href="{{ asset('/images/icon.png') }}" type="image/gif">
+
     <!-- Fonts -->
-    <link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('/fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Loading main css file -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/su_si.css">
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/su_si.css') }}">
 
     <!-- boostrap css -->
-    <link rel="stylesheet" href="/bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('/bootstrap4/css/bootstrap.min.css') }}">
 
     <!-- album and mp3 player css-->
-    <link rel="stylesheet" href="/css/albumShow.css" type="text/css">
-    <link rel="stylesheet" href="/css/reset.min.css" type="text/css">
-    <link rel="stylesheet" href="/css/plyr.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset('/css/albumShow.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('/css/reset.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('/css/plyr.css') }}" type="text/css">
 
 
     <!-- Styles -->
@@ -41,22 +43,22 @@
 
 
     <!-- site js original-->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/app.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/app.js"></script>
 
     <!-- boostrap js -->
-    <script src="bootstrap4/js/jquery-3.3.1.min.js"></script>
-    <script src="bootstrap4/js/popper.min.js"></script>
-    <script src="bootstrap4/js/bootstrap.min.js"></script>
+    <script src="/bootstrap4/js/jquery-3.3.1.min.js"></script>
+    <script src="/bootstrap4/js/popper.min.js"></script>
+    <script src="/bootstrap4/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">$.noConflict();</script>
 
     <!-- additional js for mp3 player-->
-    <script src="js/html5media.min.js"></script>
-    <script src="js/plyr.js"></script>
-    <script src="js/prefixfree.min.js"></script>
-    <script src="js/mp3Player.js"></script>
+    <script src="/js/html5media.min.js"></script>
+    <script src="/js/plyr.js"></script>
+    <script src="/js/prefixfree.min.js"></script>
+    <script src="/js/mp3Player.js"></script>
 </body>
 </html>

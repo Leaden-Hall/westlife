@@ -39,6 +39,10 @@ Route::get('/contact', function() {
   return view('contact');
 });
 
+Route::get('/tour', function() {
+  return view('tour');
+});
+
 Route::get('/verify', function() {
   return view('verify');
 });

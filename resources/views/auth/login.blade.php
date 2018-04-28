@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" id="login" style="background-image: url('/images/slide-1@2x.jpg')">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card" style="margin-top:60px;background:#353535;">
+            <div class="card my-5" style="background:#353535;">
                 <div class="card-header"
                      style="color:#fff;font-size:28px;letter-spacing:1px;">
                     <b>{{ __('Login') }}</b>

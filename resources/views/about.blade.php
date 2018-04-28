@@ -10,7 +10,7 @@
                         <h2 class="entry-title">Our History</h2>
 
                         <figure class="featured-image">
-                            <img src="dummy/post-image.jpg" alt="post image">
+                            <img src="images/post-image.jpg" alt="post image">
                         </figure>
 
                         <p class="leading">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -44,7 +44,7 @@
                             <ul class="discography-list">
                                 <li>
                                     <figure class="cover">
-                                        <img src="dummy/thumbnail-1.jpg" alt="thumbnail 1">
+                                        <img src="images/thumbnail-1.jpg" alt="thumbnail 1">
                                     </figure>
 
                                     <div class="detail">
@@ -56,7 +56,7 @@
 
                                 <li>
                                     <figure class="cover">
-                                        <img src="dummy/thumbnail-2.jpg" alt="thumbnail 2">
+                                        <img src="images/thumbnail-2.jpg" alt="thumbnail 2">
                                     </figure>
 
                                     <div class="detail">
@@ -68,7 +68,7 @@
 
                                 <li>
                                     <figure class="cover">
-                                        <img src="dummy/thumbnail-3.jpg" alt="thumbnail 3">
+                                        <img src="images/thumbnail-3.jpg" alt="thumbnail 3">
                                     </figure>
 
                                     <div class="detail">
@@ -80,7 +80,7 @@
 
                                 <li>
                                     <figure class="cover">
-                                        <img src="dummy/thumbnail-4.jpg" alt="thumbnail 4">
+                                        <img src="images/thumbnail-4.jpg" alt="thumbnail 4">
                                     </figure>
 
                                     <div class="detail">
@@ -92,7 +92,7 @@
 
                                 <li>
                                     <figure class="cover">
-                                        <img src="dummy/thumbnail-5.jpg" alt="thumbnail 5">
+                                        <img src="images/thumbnail-5.jpg" alt="thumbnail 5">
                                     </figure>
 
                                     <div class="detail">
