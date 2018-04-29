@@ -14,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::all();
+        return view('blog/index')->with('blogs', $blogs);
     }
 
     /**
@@ -44,9 +45,11 @@ class BlogController extends Controller
      * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
-        //
+        $post = Blog::find($id);
+        return view('blog/post')->with('post', $post);
+
     }
 
     /**
