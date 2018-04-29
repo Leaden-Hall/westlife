@@ -1991,8 +1991,8 @@ body {
       font-weight: 900; }
     /* line 100, sass/layout/_content.scss */
     .content .post .entry-date .month {
-      font-size: 14px;
-      font-size: 0.875em;
+      font-size: 18px;
+      font-size: 1em;
       text-transform: uppercase; }
   /* line 105, sass/layout/_content.scss */
   .content .post .featured-image {
@@ -2010,7 +2010,6 @@ body {
     margin-bottom: 10px;
     font-size: 24px;
     font-size: 1.5em;
-    font-size: normal;
     font-weight: 700; }
     /* line 123, sass/layout/_content.scss */
     .content .post .entry-title a {
@@ -2451,16 +2450,15 @@ body {
       font-weight: 900; }
     /* line 215, sass/pages/_homepage.scss */
     .event .entry-date .month {
-      font-size: 14px;
-      font-size: 0.875em;
+      font-size: 18px;
+      font-size: 1em;
       text-transform: uppercase; }
   /* line 220, sass/pages/_homepage.scss */
   .event .entry-title {
     margin-top: 0;
     font-size: 16px;
     font-size: 1em;
-    font-size: normal;
-    font-weight: 400; }
+    font-weight: 600; }
     /* line 226, sass/pages/_homepage.scss */
     .event .entry-title a {
       color: white;
@@ -2533,20 +2531,16 @@ body {
 
 /* line 5, sass/pages/_gallery.scss */
 .mobile-filter {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   border: 1px solid #fd5927;
-  padding: 10px 20px;
-  border-radius: 0;
-  background: none;
+  padding: 10px 10px;
+  background: #191919;
   color: #fd5927;
   font-weight: 400;
   text-transform: uppercase;
   font-size: 12px;
   font-size: 0.75em;
   display: none;
-  width: 100%;
+  width: 80%;
   text-align: center; }
   @media screen and (max-width: 480px) {
     /* line 5, sass/pages/_gallery.scss */
@@ -2570,7 +2564,6 @@ body {
     line-height: normal;
     font-size: 12px;
     font-size: 0.75em;
-    -webkit-transition: .3s ease;
             transition: .3s ease;
     margin-right: 10px; }
     /* line 42, sass/pages/_gallery.scss */

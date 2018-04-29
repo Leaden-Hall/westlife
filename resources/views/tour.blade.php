@@ -55,41 +55,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr id="2000">
-                        <th scope="row">2000</th>
-                        <td>East Meets Westlife Tour</td>
-                        <td>Unknown</td>
-                        <td>The East Meets Westlife Tour was the debut tour by the band. It promoted the band's second
-                            studio album, Coast to Coast. Details of the tour are scarce and unknown. The trek primarily
-                            toured Asia during the summer of 2000.</td>
-                    </tr>
-                    <tr id="2001">
-                        <th scope="row">2001</th>
-                        <td>Where Dreams Come True Tour</td>
-                        <td>9 February 2001 - 20 May 2001</td>
-                        <td>Their second tour, Where Dreams Come True Tour, was the band's first worldwide tour. They
-                            performed concerts in Europe, Asia and Africa. The tour was alternatively called the "No
-                            Stool Tour" to reflect the band's reputation of performing on stools. Concert footage was
-                            released on a video entitled, Where Dreams Come True. The concert was filmed in Dublin.</td>
-                    </tr>
-                    <tr id="2002">
-                        <th scope="row">2002</th>
-                        <td>World of Our Own Tour</td>
-                        <td>1 April 2002 - 28 June 2002</td>
-                        <td>For their third tour, the World Of Our Own Tour, the group promoted their third studio
-                            album, World of Our Own. The tour only reached Europe, with a majority of the dates in
-                            the United Kingdom and Ireland.</td>
-                    </tr>
-                    <tr id="2003">
-                        <th scope="row">2003</th>
-                        <td>Unbreakable Tour</td>
-                        <td>13 April 2003 - 25 October 2003</td>
-                        <td>The Unbreakable Tour was the band's fourth concert tour and first greatest hits tour. It
-                            was commonly referred to as "The Greatest Hits Tour". It supported the compilation album,
-                            Unbreakable: The Greatest Hits Volume 1. The imagery for the tour was inspired by Andy Warhol
-                            and the Las Vegas revues. A DVD of the tour was released entitled, The Greatest Hit Tour:
-                            Live rom M.E.N. Arena.</td>
-                    </tr>
+                        @foreach($tours as $tour)
+                            <tr id="{{$tour->id}}">
+                                <th scope="row">{{ $tour->start->year }}</th>
+                                <td>{{ $tour->name }}</td>
+                                <td>{{ $tour->start->toFormattedDateString() }}
+                                    -
+                                    {{ $tour->end->toFormattedDateString() }}</td>
+                                <td>{{ $tour->summary }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

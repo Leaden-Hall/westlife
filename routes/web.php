@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -23,9 +21,8 @@ Route::get('/about', function() {
   return view('about');
 });
 
-Route::get('/gallery', function() {
-  return view('gallery');
-});
+Route::get('/gallery', 'GalleryController@index');
+Route::get('/gallery/{gallery}', 'GalleryController@show');
 
 Route::get('/album', function() {
   return view('album/index');
@@ -39,9 +36,7 @@ Route::get('/contact', function() {
   return view('contact');
 });
 
-Route::get('/tour', function() {
-  return view('tour');
-});
+Route::get('/tour', 'TourController@index');
 
 Route::get('/verify', function() {
   return view('verify');
