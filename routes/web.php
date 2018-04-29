@@ -28,9 +28,9 @@ Route::get('/album', function() {
   return view('album/index');
 });
 
-Route::get('/blog', function() {
-  return view('blog/index');
-});
+Route::get('/blog',  'BlogController@index')->name('blog');
+
+Route::get('/blog/{id}',  'BlogController@show');
 
 Route::get('/contact', function() {
   return view('contact');
