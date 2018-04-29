@@ -6,31 +6,28 @@
     <section class="hero">
         <div class="slider">
             <ul class="slides">
-                <li class="lazy-bg" data-background="images/slide-1.jpg">
+                <li class="lazy-bg" data-background="/images/slide-1.jpg">
                     <div class="container">
-                        <h2 class="slide-title">Header goes here</h2>
-                        <h3 class="slide-subtitle">Less important text goes here</h3>
-                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Fugiat aliquid minus nemo sed est.</p>
+                        <h2 class="slide-title">Coast To Coast</h2>
+                        <h3 class="slide-subtitle">6 November 2000</h3>
 
                         <a href="#" class="button cut-corner">Listen Now</a>
                     </div>
                 </li>
 
-                <li class="lazy-bg" data-background="images/slide-2.jpg">
+                <li class="lazy-bg" data-background="/images/slide-2.jpg">
                     <div class="container">
-                        <h2 class="slide-title">Header goes here</h2>
-                        <h3 class="slide-subtitle">Less important text goes here</h3>
-                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Fugiat aliquid minus nemo sed est.</p>
+                        <h2 class="slide-title">Released Album</h2>
+                        <h3 class="slide-subtitle">28 March 2005</h3>
 
                         <a href="#" class="button cut-corner">Listen Now</a>
                     </div>
                 </li>
 
-                <li class="lazy-bg" data-background="images/slide-3.jpg">
+                <li class="lazy-bg" data-background="/images/slide-3.jpg">
                     <div class="container">
-                        <h2 class="slide-title">Header goes here</h2>
-                        <h3 class="slide-subtitle">Less important text goes here</h3>
-                        <p class="slide-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Fugiat aliquid minus nemo sed est.</p>
+                        <h2 class="slide-title">The Greatest Hits Vol.2</h2>
+                        <h3 class="slide-subtitle">18 November 2011</h3>
 
                         <a href="#" class="button cut-corner">Listen Now</a>
                     </div>
@@ -70,8 +67,6 @@
                             <span>Westlife</span>
                         </blockquote>
                     </li>
-
-
                 </ul>
             </div>
         </div>

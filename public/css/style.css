@@ -54,8 +54,7 @@ html,
 button,
 input,
 select,
-textarea {
-  font-family: sans-serif; }
+textarea { }
 
 /* line 119, sass/libs/_normalize.scss */
 body {
@@ -130,7 +129,6 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, serif;
   font-size: 1em; }
 
 /* line 252, sass/libs/_normalize.scss */
@@ -198,7 +196,6 @@ button,
 input,
 select,
 textarea {
-  font-family: inherit;
   font-size: 100%;
   margin: 0;
   vertical-align: baseline; }
@@ -268,7 +265,6 @@ table {
 body {
   background-color: #141414;
   color: #848484;
-  font-family: "Source Sans Pro", "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 24px; }
 

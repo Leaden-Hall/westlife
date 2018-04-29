@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use Illuminate\Http\Request;
-
 class GalleryController extends Controller
 {
 
@@ -29,8 +28,7 @@ class GalleryController extends Controller
 
     public function show(Gallery $gallery)
     {
-      $galleries = Gallery::all();
-      return view('gallery', compact('gallery', 'galleries'));
+
     }
 
 

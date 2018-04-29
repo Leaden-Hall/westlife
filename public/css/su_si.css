@@ -1,17 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 #login {
-		background-color: transparent;
-    ;
-
-}
-#register {
-    background-image: url("../dummy/register.jpg");
-    background-size: 1350px;
-}
-#reset {
-    background-image: url("../dummy/reset.jpg");
-    background-size: 1340px;
+	background-color: transparent;
 }
 .sign{
 	padding: 6px 12px;
