@@ -18,7 +18,7 @@ class CreateAlbumsTable extends Migration
           $table->string('title', 200)->unique();
           $table->string('logo', 50);
           $table->text('summary');
-          $table->year('year');
+          $table->date('released');
           $table->timestamps();
         });
     }

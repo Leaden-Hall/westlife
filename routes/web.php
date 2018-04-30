@@ -24,9 +24,8 @@ Route::get('/about', function() {
 Route::get('/gallery', 'GalleryController@index');
 Route::get('/gallery/{gallery}', 'GalleryController@show');
 
-Route::get('/album', function() {
-  return view('album/index');
-});
+Route::get('/album', 'AlbumController@index');
+Route::get('/album/{album}', 'AlbumController@show');
 
 Route::get('/blog',  'BlogController@index')->name('blog');
 

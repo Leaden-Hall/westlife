@@ -134,6 +134,7 @@
 
 .album-track-link:hover {
 	text-decoration: underline;
+  color: #fff;
 }
 .album-track-name:not(:last-child) {
   margin-right: 2em;
@@ -150,7 +151,10 @@
 
 .album-track-download, .album-track-share {
 	color: #fff;
-	
+}
+
+.album-track-download:hover, .album-track-share:hover {
+  color: #fd5927;
 }
 
 .album-track-name:first-child {
