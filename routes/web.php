@@ -29,8 +29,12 @@ Route::get('/album', function() {
 });
 
 Route::get('/blog',  'BlogController@index')->name('blog');
-
 Route::get('/blog/{id}',  'BlogController@show');
+
+Route::post('/comment',  'CommentController@store');
+Route::put('/comment/update/{id}',  'CommentController@update');
+Route::delete('/comment/{id}',  'CommentController@destroy');
+Route::put('/comment/{id}',  'CommentController@edit');
 
 Route::get('/contact', function() {
   return view('contact');

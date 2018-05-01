@@ -30,45 +30,62 @@
                     <div class="mt-5">
                         <h1 style="border-bottom: 2px solid;color:#fd5927">Leave a Comment</h1>
 
-                        <p style="color:white; font-size:28px">Sign In to comment on this post</p>
+                        @if(Auth::user())
+                            @foreach($comments as $key => $value)
+                                @if(Auth::user()->username === $value->commenter)
+                            <div class="card mb-2 cm-card bg-dark ">
+                                <div class="card-body">
+                                    <h4 class="card-title text-white font-weight-bold">{{ $value->commenter }}</h4>
 
-                        <div class="card mb-2 cm-card bg-dark ">
-                            <div class="card-body">
-                                <h4 class="card-title text-white font-weight-bold">Dinh</h4>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $value->created_at->diffForHumans() }}</h6>
 
-                                <h6 class="card-subtitle mb-2 text-muted">3 hours ago</h6>
+                                    <p class="card-text text-light">{{ $value->content }}</p>
+                                    <div class="">
+                                        {{--<a href="{{ URL::to('blog/'.$post->id.'/comment/' . $value->id) }}" class="text-danger float-right px-1 cm-links">Delete</a>--}}
+                                        {{ Form::open(array('url' => '/comment/' . $value->id)) }}
+                                        {{ Form::hidden('_method', 'delete') }}
+                                        {{ Form::submit('Delete', array('class' => 'btn text-danger float-right px-1 cm-links', 'style'=>'margin-left: 5px;')) }}
+                                        {{ Form::close() }}
+                                        {{--<a href="#" class="text-warning float-right px-1 cm-links">Edit</a>--}}
 
-                                <p class="card-text text-light">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <div class="">
-                                    <a href="#" class="text-danger float-right px-1 cm-links">Delete</a>
-                                    <a href="#" class="text-warning float-right px-1 cm-links">Edit</a>
-                                </div>
+                                        {{ Form::open(array('url' => '/comment/' . $value->id, 'method' => 'put')) }}
+                                        {{ Form::submit('Edit', array('class' => 'btn text-primary float-right px-1 cm-links')) }}
+                                        {{ Form::close() }}
+                                    </div>
 
-                            </div>
-                        </div>
-
-                        <div class="card mb-2 cm-card bg-dark ">
-                            <div class="card-body">
-                                <h4 class="card-title text-white font-weight-bold">Thanh</h4>
-
-                                <h6 class="card-subtitle mb-2 text-muted">4 hours ago</h6>
-
-                                <p class="card-text text-light">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                            </div>
-                        </div>
-
-                        <form style="margin-top: 20px" class="contact-form">
-                            <div class="form-row ">
-                                <div class="form-group">
-                                    <textarea type="text" class="form-control comment-form" required cols="85"></textarea>
                                 </div>
                             </div>
-                            <button type="submit" class="btn button">Comment</button>
-                        </form>
+                            @else
+                            <div class="card mb-2 cm-card bg-dark ">
+                                <div class="card-body">
+                                    <h4 class="card-title text-white font-weight-bold">{{ $value->commenter }}</h4>
 
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $value->created_at->diffForHumans() }}</h6>
 
+                                    <p class="card-text text-light">{{ $value->content }}</p>
+                                </div>
+                            </div>
+                                @endif
+                            @endforeach
+
+                                @if(session('content'))
+                                    {{ Form::open(array('url' => '/comment/update/' . session('id'),'method' => 'put',
+                                     'class' => 'contact-form', 'style'=>"margin-top: 20px")) }}
+                                    {{Form::textarea('content', session('content'), array('class' => 'form-row form-group form-control comment-form',
+                                     'required cols'=>"85"))}}
+                                    {{ Form::hidden('blog', $post->id) }}
+                                    {{ Form::hidden('blog', $post->id) }}
+                                @else
+                                    {{ Form::open(array('url' => '/comment', 'class' => 'contact-form', 'style'=>"margin-top: 20px")) }}
+                                    {{Form::textarea('content', null, array('class' => 'form-row form-group form-control comment-form', 'required cols'=>"85"))}}
+                                    {{ Form::hidden('blog', $post->id) }}
+                                @endif
+
+                            {{ Form::submit('Comment', array('class' => 'btn button')) }}
+                            {{ Form::close() }}
+                        @else
+                            <p style="color:white; font-size:28px">Sign In to comment on this post</p>
+                        @endif
 
                     </div>
 

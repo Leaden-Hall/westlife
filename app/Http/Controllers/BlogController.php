@@ -48,7 +48,8 @@ class BlogController extends Controller
     public function show($id)
     {
         $post = Blog::find($id);
-        return view('blog/post')->with('post', $post);
+        $comments = Blog::with('comments')->find($id)->comments;
+        return view('blog/post')->with(compact('post', 'comments'));
 
     }
 

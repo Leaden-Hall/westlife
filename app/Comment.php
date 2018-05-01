@@ -3,8 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Blog;
 
 class Comment extends Model
 {
-    //
+    function blog() {
+        return $this->belongsTo(Blog::class);
+    }
 }
