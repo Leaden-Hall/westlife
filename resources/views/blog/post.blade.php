@@ -27,7 +27,7 @@
                         </p>
                     </div>
 
-                    <div class="mt-5">
+                    <div class="mt-5" id="commentSection">
                         <h1 style="border-bottom: 2px solid;color:#fd5927">Leave a Comment</h1>
 
                         @if(Auth::user())
