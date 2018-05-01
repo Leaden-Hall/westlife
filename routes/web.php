@@ -26,6 +26,7 @@ Route::get('/gallery/{gallery}', 'GalleryController@show');
 
 Route::get('/album', 'AlbumController@index');
 Route::get('/album/{album}', 'AlbumController@show');
+Route::get('/album/listen/{album}', 'AlbumController@listen');
 
 Route::get('/blog',  'BlogController@index')->name('blog');
 

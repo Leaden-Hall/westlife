@@ -32,9 +32,31 @@ class AlbumController extends Controller
     {
       $albumNa = preg_replace('/\-/', ' ', $albumName);
       $album = Album::where('title', '=', $albumNa)->first();
+
+      foreach ($album->songs as $song) {
+        $file = new mp3Controller("storage/albums/".$albumNa."/".$song->url);
+        $duration = $file->getDuration();
+        $length = mp3Controller::formatTime($duration);
+        $song['length'] = $length;
+      }
+
       return view('album/show', compact('album'));
     }
 
+    public function listen($albumName)
+    {
+      $albumNa = preg_replace('/\-/', ' ', $albumName);
+      $album = Album::where('title', '=', $albumNa)->first();
+
+      foreach ($album->songs as $song) {
+        $file = new mp3Controller("storage/albums/".$albumNa."/".$song->url);
+        $duration = $file->getDuration();
+        $length = mp3Controller::formatTime($duration);
+        $song['length'] = $length;
+      }
+
+      return view('album/listen', compact('album'));
+    }
 
     public function edit(Album $album)
     {

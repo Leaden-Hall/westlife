@@ -29,9 +29,9 @@
                     @foreach($galleries as $gallery)
                         @foreach($gallery->images as $image)
                             <div class="filterable-item {{preg_replace('/\s+/', '', $gallery->name)}}">
-                                <a href="/images/{{preg_replace('/\s+/', '', $gallery->name)}}/{{$image->url}}">
+                                <a href="/images/{{$gallery->name}}/{{$image->url}}">
                                     <figure>
-                                        <img src="/images/{{preg_replace('/\s+/', '', $gallery->name)}}/{{$image->url}}"
+                                        <img src="/images/{{$gallery->name}}/{{$image->url}}"
                                              alt="{{$image->caption}}">
                                     </figure>
                                 </a>

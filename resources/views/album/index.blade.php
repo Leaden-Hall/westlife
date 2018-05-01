@@ -20,7 +20,7 @@
                                     <h2 class="item-title">{{$album->title}}</h2>
                                     <h4 class="year">{{$album->released->year}}</h4>
                                     <a href="album/{{preg_replace('/\s+/', '-', $album->title)}}" class="btn button primary">Listen</a>
-                                    <a href="album/download" class="btn button secondary">Download</a>
+                                    <a href="album/download/{{preg_replace('/\s+/', '-', $album->title)}}" class="btn button secondary">Download</a>
                                     <div class="social-share">
                                         <span>Share:</span>
                                         <a href="#"><i class="fa fa-facebook"></i></a>

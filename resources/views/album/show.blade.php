@@ -14,7 +14,10 @@
                                 <img src="/images/{{$album->logo}}" alt="{{$album->title}}" class="img-fluid">
 
                                 <div class="actions">
-                                    <div style="width: 100%;"><a href="listen.html" class="play">listen</a></div>
+                                    <div style="width: 100%;">
+                                        <a href="listen/{{preg_replace('/\s+/', '-', $album->title)}}"
+                                           class="play">listen</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -35,96 +38,24 @@
 
                 <div class="album-tracks">
                     <ol>
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Feel Invincible</a></span>
+                        @if(count($album->songs) == 0)
+                            <h4 class="text-center text-white">
+                                We haven't update songs for this album.  Sorry for the inconvenience</h4>
+                        @endif
 
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
+                        @foreach($album->songs as $song)
+                            <li>
+                                <span class="album-track-name">
+                                    <a href="" class="album-track-link">{{$song->name}}</a>
+                                </span>
 
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Back From The Dead</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Stars</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">I Want To Live</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Undefeated</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Famous</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Lions</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Out Of Hell</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Burn It Down</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <span class="album-track-name"><a href="" class="album-track-link">Watching For Comets</a></span>
-                            <div>
-                                <span class="album-track-length">3:49</span>
-                                <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
-                                <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
-                            </div>
-                        </li>
+                                <div>
+                                    <span class="album-track-length">{{$song->length}}</span>
+                                    <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
+                                    <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
+                                </div>
+                            </li>
+                        @endforeach
 
                     </ol>
                 </div>
