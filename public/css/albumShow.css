@@ -1,7 +1,6 @@
 .background {
   width: 100%;
   height: 40.25vw;
-  background-image: url(https://fanart.tv/api/download.php?type=download&image=39534&section=2);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -132,10 +131,6 @@
 	text-decoration: none;
 }
 
-.album-track-link:hover {
-	text-decoration: underline;
-  color: #fff;
-}
 .album-track-name:not(:last-child) {
   margin-right: 2em;
 }

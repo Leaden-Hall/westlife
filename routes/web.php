@@ -21,12 +21,19 @@ Route::get('/about', function() {
   return view('about');
 });
 
+
+
 Route::get('/gallery', 'GalleryController@index');
 Route::get('/gallery/{gallery}', 'GalleryController@show');
+
+
 
 Route::get('/album', 'AlbumController@index');
 Route::get('/album/{album}', 'AlbumController@show');
 Route::get('/album/listen/{album}', 'AlbumController@listen');
+Route::get('/album/download/{album}', 'AlbumController@download');
+
+Route::get('/song/download/{album}/{song}', 'SongController@download');
 
 Route::get('/blog',  'BlogController@index')->name('blog');
 

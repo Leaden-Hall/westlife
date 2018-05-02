@@ -4,7 +4,7 @@
     <section class="fullwidth-block inner-content">
         <div class="container">
 
-            <div class="background"></div>
+            <div class="background" style="background-image: url('/images/{{$album->cover}}')"></div>
 
             <div id="album-section">
                 <div class="album-info">
@@ -46,12 +46,13 @@
                         @foreach($album->songs as $song)
                             <li>
                                 <span class="album-track-name">
-                                    <a href="" class="album-track-link">{{$song->name}}</a>
+                                    <span class="album-track-link">{{$song->name}}</span>
                                 </span>
 
                                 <div>
                                     <span class="album-track-length">{{$song->length}}</span>
-                                    <a href="" class="album-track-download"><span class="fa fa-download"></span></a>
+                                    <a href="/song/download/{{preg_replace('/\s+/', '-', $album->title)}}/{{preg_replace('/\s+/', '-', $song->name)}}"
+                                       class="album-track-download"><span class="fa fa-download"></span></a>
                                     <a href="" class="album-track-share"><span class="fa fa-share"></span></a>
                                 </div>
                             </li>

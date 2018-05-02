@@ -5,26 +5,26 @@
     <section class="fullwidth-block inner-content">
         <div class="container">
 
-            <div class="background"></div>
+            <div class="background" style="background-image: url('/images/{{$albumListen->cover}}')"></div>
 
             <div id="album-section">
                 <div class="album-info">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="album-art">
-                                <img src="/images/{{$album->logo}}" alt="{{$album->logo}}" style="margin-top:30px;">
+                                <img src="/images/{{$albumListen->logo}}" alt="{{$albumListen->logo}}" style="margin-top:30px;">
                             </div>
                         </div>
 
                         <div class="col-md-9">
                             <div class="album-details">
-                                <h1>{{$album->title}}</h1>
+                                <h1>{{$albumListen->title}}</h1>
                                 <span>
-							<span>{{$album->released->year}}</span>
+							<span>{{$albumListen->released->year}}</span>
 							<span>&copy; 2018 Westlife.com</span>
 						</span>
 
-                                <p>{{$album->summary}}</p>
+                                <p>{{$albumListen->summary}}</p>
                             </div>
                         </div>
                     </div>

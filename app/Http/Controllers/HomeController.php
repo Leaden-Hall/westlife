@@ -4,33 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tour;
+use App\Album;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
       $featureTours = Tour::orderBy('start', 'desc')->take(6)->get();
-
-      return view('home',  compact('featureTours'));
-
-    }
-
-    public function featureTour()
-    {
+      $featureAlbums = Album::where('note', '=', 'feature')->take(3)->get();
+      $greatestAlbums = Album::where('note', '=', 'feature')->take(3)->get();
+      return view('home',  compact('featureTours', 'featureAlbums', 'greatestAlbums'));
 
     }
+
 }

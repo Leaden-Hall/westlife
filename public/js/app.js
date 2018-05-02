@@ -3,15 +3,9 @@
 	$(document).ready(function(){
 
 		$("[data-background]").each(function(){
-			var retina = window.devicePixelRatio > 1;
 			var bg = $(this).data("background");
-			if( retina ){
-				var retinabg = bg.replace(".jpg","@2x.jpg");
-				$(this).css("background-image","url("+retinabg+")");	
-			} else{
-				$(this).css("background-image","url("+bg+")");
-			}
-			
+
+			$(this).css("background-image","url("+bg+")");
 		});
 
 		$("[data-bg-color]").each(function(){
@@ -34,7 +28,7 @@
 		var eventCarousel = $(".event-carousel");
 		eventCarousel.owlCarousel({
  
-			autoPlay: 3000, //Set AutoPlay to 3 seconds
+			autoPlay: 10000, //Set AutoPlay to 3 seconds
 			rewindNav: false,
 			items : 4,
 			itemsDesktop : [1199,3],

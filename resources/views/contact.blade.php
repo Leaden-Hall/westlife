@@ -16,16 +16,18 @@
                 </div>
                 <div class="col-md-6">
                     <div class="map-wrapper">
-                        <div class="map"></div>
+                        <div id="ggMap"></div>
+                        <script src="{{ asset('/js/ggMap.js') }}"></script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxrgQ16DvJw6OSlLilDCnG0Rd3m5lWJKY&callback=siteMap"></script>
                         <address>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <strong>Company Name INC.</strong>
-                                    <span>40 Sibley St, Detroit</span>
+                                    <strong>Faculty of Information Technology</strong>
+                                    <a href="mailto:westlifegithanu@gmail.com">westlifegithanu@gmail.com</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="mailto:office@companyname.com">office@companyname.com</a> <br>
-                                    <a href="tel:532930098891">(532) 930 098 891</a>
+                                    <span>Hanoi University</span><br>
+                                    <apan>Thanh Xuan Dist, Hanoi, Vietnam</apan>
                                 </div>
                             </div>
                         </address>

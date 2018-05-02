@@ -6,10 +6,10 @@
         if (supportsAudio) {
             var index = 0,
                 playing = false,
-                mediaPath = '/storage/albums/{{$album->title}}/',
+                mediaPath = '/storage/albums/{{$albumListen->title}}/',
                 id = 1,
                 tracks = [
-                    @foreach($album->songs as $song)
+                    @foreach($albumListen->songs as $song)
                         {"track": id++,
                         "name": "{{$song->name}}",
                         "duration": "{{$song->length}}",
