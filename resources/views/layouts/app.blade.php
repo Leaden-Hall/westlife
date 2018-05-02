@@ -30,6 +30,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+
+    </style>
 </head>
 <body>
 
@@ -41,24 +45,22 @@
 
     @include('layouts.footer')
 
-
     <!-- site js original-->
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-    <script src="/js/plugins.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins.js') }}"></script>
+    <script src="{{ asset('/js/app.js') }}"></script>
 
     <!-- boostrap js -->
-    <script src="/bootstrap4/js/jquery-3.3.1.min.js"></script>
-    <script src="/bootstrap4/js/popper.min.js"></script>
-    <script src="/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="{{ asset('/bootstrap4/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('/bootstrap4/js/popper.min.js') }}"></script>
+    <script src="{{ asset('/bootstrap4/js/bootstrap.min.js') }}"></script>
 
     <script type="text/javascript">$.noConflict();</script>
 
     <!-- additional js for mp3 player-->
-    <script src="/js/html5media.min.js"></script>
-    <script src="/js/plyr.js"></script>
-    <script src="/js/prefixfree.min.js"></script>
-    <script src="/js/mp3Player.js"></script>
+    {{--<script src="{{ asset('/js/html5media.min.js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/plyr.js') }}"></script>--}}
+    {{--<script src="{{ asset('/js/prefixfree.min.js') }}"></script>--}}
+    {{--<script src="/js/mp3Player.js"></script>--}}
 </body>
 </html>

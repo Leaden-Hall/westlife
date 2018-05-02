@@ -2025,7 +2025,7 @@ body {
     text-decoration: none; }
 
 /* line 138, sass/layout/_content.scss */
-.map {
+#ggMap {
   height: 320px; }
 
 /* line 142, sass/layout/_content.scss */

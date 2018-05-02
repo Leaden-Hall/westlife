@@ -6,32 +6,17 @@
     <section class="hero">
         <div class="slider">
             <ul class="slides">
-                <li class="lazy-bg" data-background="/images/slide-1.jpg">
+                @foreach($featureAlbums as $ftAlbum)
+                <li class="lazy-bg" data-background="/images/{{$ftAlbum->cover}}">
                     <div class="container">
-                        <h2 class="slide-title">Coast To Coast</h2>
-                        <h3 class="slide-subtitle">6 November 2000</h3>
+                        <h2 class="slide-title">{{$ftAlbum->title}}</h2>
+                        <h3 class="slide-subtitle">{{$ftAlbum->released->toFormattedDateString()}}</h3>
 
-                        <a href="#" class="button cut-corner">Listen Now</a>
+                        <a href="/album/{{preg_replace('/\s+/', '-', $ftAlbum->title)}}" class="button cut-corner">Listen Now</a>
                     </div>
                 </li>
+                @endforeach
 
-                <li class="lazy-bg" data-background="/images/slide-2.jpg">
-                    <div class="container">
-                        <h2 class="slide-title">Released Album</h2>
-                        <h3 class="slide-subtitle">28 March 2005</h3>
-
-                        <a href="#" class="button cut-corner">Listen Now</a>
-                    </div>
-                </li>
-
-                <li class="lazy-bg" data-background="/images/slide-3.jpg">
-                    <div class="container">
-                        <h2 class="slide-title">The Greatest Hits Vol.2</h2>
-                        <h3 class="slide-subtitle">18 November 2011</h3>
-
-                        <a href="#" class="button cut-corner">Listen Now</a>
-                    </div>
-                </li>
             </ul>
         </div>
     </section>
@@ -111,50 +96,23 @@
             </header>
 
             <div class="row">
+                @foreach($greatestAlbums as $gtAlbum)
                 <div class="col-md-4">
                     <div class="feature">
                         <figure class="cut-corner">
-                            <img src="images/Coast-To-Coast.jpg" alt="Coast To Coast" class="img-fluid">
+                            <img src="images/{{$gtAlbum->logo}}" alt="{{$gtAlbum->title}}" class="img-fluid">
                         </figure>
-                        <h3 class="feature-title"><a href="" class="GA-links">Coast To Coast</a></h3>
-                        <p class="GA-summary"><b>Coast to Coast</b> is the second studio album by Irish boy band Westlife. It was released on
-                            6 November 2000 by RCA Records.In January 2005, the album was re-issued in a two-in-one box
-                            set compilation with the group's third album, World of our Own. A video album, entitled
-                            Coast to Coast - Up Close and Personal, was released on 27 November 2000.It peaked at number
-                            one on the UK Visual Chart.</p>
-                    </div> <!-- .feature -->
-                </div>
-
-                <div class="col-md-4">
-                    <div class="feature">
-                        <figure class="cut-corner">
-                            <img src="images/Back-Home.png" alt="Back Home" class="img-fluid">
-                        </figure>
-                        <h3 class="feature-title"><a href="" class="GA-links">Back Home</a></h3>
-                        <p class="GA-summary"><b>Back Home</b> is the eighth studio album by Irish boy band Westlife, released on 5 November
-                            2007 through Syco Music, Sony Music and RCA Records. The album was produced by Steve Mac,
-                            Quiz & Larossi, Per Magnusson, David Kreuger and Rami Yacoub, who also produced some of
-                            the group's previous material. Back Home was the group's final album before their
-                            temporary break from music in 2008.</p>
+                        <h3 class="feature-title">
+                            <a href="/album/{{preg_replace('/\s+/', '-', $gtAlbum->title)}}" class="GA-links">{{$gtAlbum->title}}</a>
+                        </h3>
+                        <p class="GA-summary">{{$gtAlbum->summary}}</p>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="col-md-4">
-                    <div class="feature">
-                        <figure class="cut-corner">
-                            <img src="images/Greatest-Hits.jpg" alt="Greatest Hits" class="img-fluid">
-                        </figure>
-                        <h3 class="feature-title"><a href="" class="GA-links">Greatest Hits</a></h3>
-                        <p class="GA-summary"><b>Greatest Hits</b> is the second greatest hits album and final release by Irish boy band Westlife.
-                            It was released on 18 November 2011 by RCA Records and Sony Music. Greatest Hits is the
-                            group's second greatest hits album following Unbreakable: The Greatest Hits Volume 1 (2002).
-                            The album is the group's first album not under Syco Music and not under the tutelage of
-                            Simon Cowell, having left Syco and Cowell in March 2011</p>
-                    </div> <!-- .feature -->
-                </div>
 
             </div>
-        </div> <!-- .container -->
+        </div>
     </section>
 @endsection
 
