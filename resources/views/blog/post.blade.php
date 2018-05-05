@@ -41,12 +41,10 @@
 
                                     <p class="card-text text-light">{{ $value->content }}</p>
                                     <div class="">
-                                        {{--<a href="{{ URL::to('blog/'.$post->id.'/comment/' . $value->id) }}" class="text-danger float-right px-1 cm-links">Delete</a>--}}
                                         {{ Form::open(array('url' => '/comment/' . $value->id)) }}
                                         {{ Form::hidden('_method', 'delete') }}
                                         {{ Form::submit('Delete', array('class' => 'btn text-danger float-right px-1 cm-links', 'style'=>'margin-left: 5px;')) }}
                                         {{ Form::close() }}
-                                        {{--<a href="#" class="text-warning float-right px-1 cm-links">Edit</a>--}}
 
                                         {{ Form::open(array('url' => '/comment/' . $value->id, 'method' => 'put')) }}
                                         {{ Form::submit('Edit', array('class' => 'btn text-primary float-right px-1 cm-links')) }}
@@ -84,7 +82,7 @@
                             {{ Form::submit('Comment', array('class' => 'btn button')) }}
                             {{ Form::close() }}
                         @else
-                            <p style="color:white; font-size:28px">Sign In to comment on this post</p>
+                            <p class="text-white" style="font-size:28px">Sign In to comment on this post</p>
                         @endif
 
                     </div>

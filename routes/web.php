@@ -17,9 +17,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/about', function() {
-  return view('about');
-});
+Route::get('/account', 'UserController@index');
+Route::get('/account/password', 'UserController@password');
+Route::post('/account/updatePassword', 'UserController@updatePassword');
+Route::get('/account/email', 'UserController@email');
+Route::post('/account/updateEmail', 'UserController@updateEmail');
+
+
+Route::get('/account/blogs', 'BlogController@manageBlog');
+Route::get('/account/blogs/edit/{blog}', 'BlogController@editBlog');
+
+Route::get('/about', 'BlogController@about');
 
 
 

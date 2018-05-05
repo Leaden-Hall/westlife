@@ -1,6 +1,11 @@
+<style>
+    .dropdown-item:hover {
+        background-color: #404040;
+    }
+</style>
 
-<!-- Log In and Register and User account -->
-<section class="container" id="#su-si" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+
+<section class="container user" id="#su-si">
     <ul class="list-inline float-right" style="margin:0">
         @guest
             <li class="list-inline-item"><a href="{{ route('register') }}" class="sign button">
@@ -14,14 +19,16 @@
             </li>
         @else
             <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <a id="navbarDropdown" class="nav-link dropdown-toggle"
+                   href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false" v-pre>
                     {{ Auth::user()->username }} <span class="caret"></span>
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background:#353535;">
-                    <a class="dropdown-item" href="#" style="color:#fff;">My Account</a>
+                    <a class="dropdown-item text-white" href="/account">My Account</a>
 
-                    <a class="dropdown-item" href="{{ route('logout') }}" style="color:#fff;"
+                    <a class="dropdown-item text-white" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -36,13 +43,13 @@
     </ul>
 </section>
 
-<!-- header and navigation bar-->
+
 <header class="site-header">
     <div class="container">
         <a href="/" id="branding">
-            <img src="/images/logo.png" alt="Site Title">
+            <img src="{{asset('/images/logo.png')}}" alt="Site Title">
             <small class="site-description">Only if you could reunite...</small>
-        </a> <!-- #branding -->
+        </a>
 
         <nav class="main-navigation">
             <button type="button" class="toggle-menu"><i class="fa fa-bars"></i></button>
@@ -53,8 +60,8 @@
                 <li class="menu-item"><a href="/album">Album</a></li>
                 <li class="menu-item"><a href="/blog">Blog</a></li>
                 <li class="menu-item"><a href="/contact">Contact</a></li>
-            </ul> <!-- .menu -->
-        </nav> <!-- .main-navigation -->
+            </ul>
+        </nav>
         <div class="mobile-menu"></div>
     </div>
-</header> <!-- .site-header -->
+</header>

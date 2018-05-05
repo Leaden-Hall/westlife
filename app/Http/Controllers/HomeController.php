@@ -9,18 +9,19 @@ use App\Album;
 class HomeController extends Controller
 {
 
-    public function __construct()
-    {
-    }
+  public function __construct()
+  {
+    $this->middleware('auth')->except(['index']);
+  }
 
 
-    public function index()
-    {
-      $featureTours = Tour::orderBy('start', 'desc')->take(6)->get();
-      $featureAlbums = Album::where('note', '=', 'feature')->take(3)->get();
-      $greatestAlbums = Album::where('note', '=', 'feature')->take(3)->get();
-      return view('home',  compact('featureTours', 'featureAlbums', 'greatestAlbums'));
+  public function index()
+  {
+    $featureTours = Tour::orderBy('start', 'desc')->take(6)->get();
+    $featureAlbums = Album::where('note', '=', 'feature')->take(3)->get();
+    $greatestAlbums = Album::where('note', '=', 'feature')->take(3)->get();
+    return view('home',  compact('featureTours', 'featureAlbums', 'greatestAlbums'));
 
-    }
+  }
 
 }
