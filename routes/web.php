@@ -29,7 +29,7 @@ Route::get('/account/blogs/edit/{blog}', 'BlogController@editBlog');
 
 Route::get('/about', 'BlogController@about');
 
-
+Route::post('/subscribe', 'SubscriptionController@store');
 
 Route::get('/gallery', 'GalleryController@index');
 Route::get('/gallery/{gallery}', 'GalleryController@show');
@@ -40,8 +40,9 @@ Route::get('/album', 'AlbumController@index');
 Route::get('/album/{album}', 'AlbumController@show');
 Route::get('/album/listen/{album}', 'AlbumController@listen');
 Route::get('/album/download/{album}', 'AlbumController@download');
-
 Route::get('/song/download/{album}/{song}', 'SongController@download');
+
+
 
 Route::get('/blog',  'BlogController@index')->name('blog');
 Route::get('/blog/{id}',  'BlogController@show');
@@ -51,9 +52,7 @@ Route::put('/comment/update/{id}',  'CommentController@update');
 Route::delete('/comment/{id}',  'CommentController@destroy');
 Route::put('/comment/{id}',  'CommentController@edit');
 
-Route::get('/contact', function() {
-  return view('contact');
-});
+Route::get('/contact', 'HomeController@contactPage');
 
 Route::get('/tour', 'TourController@index');
 

@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Tour;
 use App\Album;
 
 class HomeController extends Controller
 {
-
-  public function __construct()
-  {
-    $this->middleware('auth')->except(['index']);
-  }
-
 
   public function index()
   {
@@ -22,6 +15,10 @@ class HomeController extends Controller
     $greatestAlbums = Album::where('note', '=', 'feature')->take(3)->get();
     return view('home',  compact('featureTours', 'featureAlbums', 'greatestAlbums'));
 
+  }
+
+  public function contactPage() {
+    return view('contact');
   }
 
 }

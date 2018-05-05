@@ -7,34 +7,51 @@
             <p>A dedication to Westlife<br><a href="mailto:info@bandname.com">westlife@gmail.com</a></p>
         </address>
 
-        <form action="#" class="newsletter-form">
-            <input type="email" placeholder="Subscribe for more...">
-            <input type="submit" class="button cut-corner" value="Subscribe"
-                   data-toggle="modal" data-target="#Modal">
+        <form action="/subscribe" class="newsletter-form" method="POST">
+            @csrf
+            <input type="email" placeholder="Subscribe for more..." name="email">
+            <input type="submit" value="Subscribe" class="button cut-corner" id="subscribe">
+        </form>
+        @if ($errors->err->has('email'))
+            <script type="text/javascript">
+                $(window).load(function() {
+                    $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+                });
+            </script>
+            <div><strong style="font-size: 18px;">{{ $errors->err->first('email') }}</strong></div>
+        @endif
 
-            <!-- Modal -->
-            <div class="modal fade" id="Modal" tabindex="-1" role="dialog"
-                 aria-labelledby="ModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="background: #333333;">
-                        <div class="modal-header">
-                            <h3 class="modal-title text-white" id="ModalLabel">Subscription</h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="text-white">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body text-white" style="font-size: 16px;">
-                            Our gratitude for your subscription!
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn button" data-dismiss="modal">Close</button>
+        <!-- Modal -->
+        <button type="button" class="d-none" data-toggle="modal" data-target="#Modal" id="launch">modal</button>
 
-                        </div>
+        <div class="modal fade" id="Modal" tabindex="-1" role="dialog"
+             aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="background: #333333;">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-white" id="ModalLabel">Subscription</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="text-white">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-white text-left" style="font-size: 16px;">
+
+                        Thanks for your subscription! <br>
+                        An Email has been sent to your mail address.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn button" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
-        </form> <!-- .newsletter-form -->
+        </div>
 
+        @if(session()->get('message') === 'subscribed')
+            <script type="text/javascript">
+                $('#launch').click()
+            </script>
+        @endif
         <div class="social-links">
             <a href="#"><i class="fa fa-facebook-square"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>

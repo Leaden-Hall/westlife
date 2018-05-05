@@ -2733,3 +2733,9 @@ body {
     font-weight: 800;
   }
 
+  #subscribe {
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+
