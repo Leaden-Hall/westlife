@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use \Illuminate\Support\MessageBag;
+use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {

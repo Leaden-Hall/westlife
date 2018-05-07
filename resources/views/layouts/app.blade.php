@@ -43,8 +43,6 @@
         @yield('content')
     </main>
 
-    @include('layouts.footer')
-
     <!-- site js original-->
     <script src="{{ asset('/js/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('/js/plugins.js') }}"></script>
@@ -56,6 +54,9 @@
     <script src="{{ asset('/bootstrap4/js/bootstrap.min.js') }}"></script>
 
     <script type="text/javascript">$.noConflict();</script>
+
+
+    @include('layouts.footer')
 
 </body>
 </html>
