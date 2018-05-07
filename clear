@@ -1,0 +1,127 @@
+[33mcommit 9dd05bb518ea0821f2007e9a3aff89e8d4be1210[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: = <=>
+Date:   Sat May 5 22:21:04 2018 +0700
+
+    finish user account page
+
+[33mcommit e1a4717e24b314e344e0c76529fe33c641a05a4b[m
+Author: = <=>
+Date:   Wed May 2 22:27:04 2018 +0700
+
+    minor fix
+
+[33mcommit f2a73a6f78be0c2d41ebb0f18b07ed4e3b599785[m
+Merge: c1bdf93 8bb87de
+Author: = <=>
+Date:   Wed May 2 22:25:09 2018 +0700
+
+    Merge branch 'music' complete download and listen
+
+[33mcommit 8bb87de337292c156fa89af19cfe445f183e5ca2[m
+Author: = <=>
+Date:   Wed May 2 22:24:54 2018 +0700
+
+    complete download music
+
+[33mcommit c1bdf93a34db152fa3ede3b35504bca54bd8ba6a[m
+Author: = <=>
+Date:   Tue May 1 23:06:50 2018 +0700
+
+    minor fix for comment
+
+[33mcommit 5361bef21d7c64b6c9211d1d4cd250c284fa77b3[m
+Author: = <=>
+Date:   Tue May 1 22:38:07 2018 +0700
+
+    complete listen to album
+
+[33mcommit 59a7fa627ce69c6673f927f5275b542f3102a4dc[m
+Author: Thanh Nguyen <0thanhnguyenduy0@gmail.com>
+Date:   Tue May 1 08:58:50 2018 +0700
+
+    implement crud comment
+
+[33mcommit dc94c8015827e61bb9de5f1dddfa83f3a89b3949[m
+Author: = <=>
+Date:   Mon Apr 30 23:06:55 2018 +0700
+
+    acomplete album index and show
+
+[33mcommit d6e1768c7187d70c5727edca82838ca0e45112ca[m
+Author: = <=>
+Date:   Sun Apr 29 21:45:53 2018 +0700
+
+    comment module instruction
+
+[33mcommit 7b2c588cf1265b478b6a65ba5cd2543436ff10ce[m
+Author: = <=>
+Date:   Sun Apr 29 21:31:57 2018 +0700
+
+    delete redundancy
+
+[33mcommit 0c9ccbbecff8bb6a5d31f92012ecc3e065fdeeee[m
+Author: = <=>
+Date:   Sun Apr 29 21:24:18 2018 +0700
+
+    complete blog, gallery
+
+[33mcommit 1c29dc13c7c7c268c904c86e1fd81c06c05c1d1c[m
+Merge: ae2cfdf d76e579
+Author: = <=>
+Date:   Sun Apr 29 15:39:54 2018 +0700
+
+    Merge branch 'Blog' of https://github.com/Leaden-Hall/westlife into Blog
+
+[33mcommit ae2cfdf7614fa95539d493ee89e971a79b18fbda[m
+Author: = <=>
+Date:   Sun Apr 29 15:39:01 2018 +0700
+
+    complete tour and working on gallery
+
+[33mcommit d76e579db35acd75cb9d752e25c351ac3e567c39[m
+Author: Thanh Nguyen <0thanhnguyenduy0@gmail.com>
+Date:   Sun Apr 29 15:10:19 2018 +0700
+
+    display blogs and blog post
+
+[33mcommit 8c75e7780af477f1b4428113387fcddf6f7fe282[m
+Author: = <=>
+Date:   Sat Apr 28 17:11:10 2018 +0700
+
+    moduel blog instruction
+
+[33mcommit 8c881c1398d7efccb80a73718b9428b02b5e3cb5[m
+Author: = <=>
+Date:   Sat Apr 28 17:10:16 2018 +0700
+
+    fix general bug
+
+[33mcommit 441464fc91396786343b9c5175fb329ee4ad73e4[m
+Author: = <=>
+Date:   Sat Apr 28 17:00:46 2018 +0700
+
+    add discography section
+
+[33mcommit 5ec9508d5a8c24af6fbea8e3d2ceb3887bad93a9[m
+Author: = <=>
+Date:   Sat Apr 28 16:14:46 2018 +0700
+
+    make image folder, fix minor bug
+
+[33mcommit 521c41794659d22991a2ec2e3a81d970006a226e[m
+Author: = <=>
+Date:   Sun Apr 22 10:22:26 2018 +0700
+
+    complete template, migration
+
+[33mcommit 040d9a6d688c6d304d2c5c3622da1d037c796acd[m
+Author: = <=>
+Date:   Sun Apr 8 22:34:32 2018 +0700
+
+    create auth layer
+
+[33mcommit 59c3a1588c21bcea3d3054c5307e972f2e4f34c5[m
+Author: = <=>
+Date:   Tue Apr 3 09:27:09 2018 +0700
+
+    "Install Laravel"

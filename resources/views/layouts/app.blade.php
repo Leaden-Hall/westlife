@@ -57,10 +57,5 @@
 
     <script type="text/javascript">$.noConflict();</script>
 
-    <!-- additional js for mp3 player-->
-    {{--<script src="{{ asset('/js/html5media.min.js') }}"></script>--}}
-    {{--<script src="{{ asset('/js/plyr.js') }}"></script>--}}
-    {{--<script src="{{ asset('/js/prefixfree.min.js') }}"></script>--}}
-    {{--<script src="/js/mp3Player.js"></script>--}}
 </body>
 </html>
