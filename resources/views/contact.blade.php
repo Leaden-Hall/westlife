@@ -3,14 +3,25 @@
 @section('content')
     <section class="fullwidth-block inner-content">
         <div class="container">
+            @if(session()->get('message') == 'contacted')
+                <div class="alert alert-success" style="border-left: 5px solid #28a745;">
+                    <strong>Thank you!</strong> Your message has been recorded!
+                </div>
+            @elseif($errors->first())
+                <div class="alert alert-danger" style="border-left: 5px solid #dc3545;">
+                    {{$errors->first()}}
+                </div>
+            @endif
+
             <h2 class="page-title">Contact Us</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="#" class="contact-form">
-                        <input type="text" placeholder="Your name..">
-                        <input type="text" placeholder="Email Address..">
-                        <input type="text" placeholder="Website...">
-                        <textarea name="#" placeholder="Message..."></textarea>
+                    <form action="/contact/new" method="POST" class="contact-form">
+                        @csrf
+                        <input type="text" placeholder="Your name.." name="name" required>
+                        <input type="email" placeholder="Email Address.." name="email" required>
+                        <input type="url" placeholder="Website..." name="url">
+                        <textarea placeholder="Message..." required name="message"></textarea>
                         <input type="submit" value="Send message">
                     </form>
                 </div>
@@ -35,5 +46,8 @@
                 </div>
             </div>
         </div>
+
+
+
     </section>
 @endsection

@@ -42,7 +42,7 @@ Route::get('/album/listen/{album}', 'AlbumController@listen');
 Route::get('/album/download/{album}', 'AlbumController@download');
 Route::get('/song/download/{album}/{song}', 'SongController@download');
 
-
+Route::post('/contact/new', 'ContactController@store');
 
 Route::get('/blog',  'BlogController@index')->name('blog');
 Route::get('/blog/{id}',  'BlogController@show');
