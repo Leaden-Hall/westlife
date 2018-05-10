@@ -6,11 +6,11 @@
             <h2 class="page-title">Contact Us</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <form action="#" class="contact-form">
-                        <input type="text" placeholder="Your name..">
-                        <input type="text" placeholder="Email Address..">
-                        <input type="text" placeholder="Website...">
-                        <textarea name="#" placeholder="Message..."></textarea>
+                    <form action="{{ url('contact') }}" method="POST" class="contact-form">
+                        {{ csrf_field() }}
+                        <input type="text" id="name" name="name" placeholder="Your name..">
+                        <input type="text" id="email" name="email" placeholder="Email Address..">
+                        <textarea id="message" name="message" placeholder="Message..."></textarea>
                         <input type="submit" value="Send message">
                     </form>
                 </div>
