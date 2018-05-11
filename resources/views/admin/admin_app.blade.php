@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Westlife | <Admin></Admin></title>
+    <title>Westlife | Admin</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -57,7 +57,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="avatar5.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Thanh Nguyen</span>
+                            <span class="hidden -xs">Thanh Nguyen</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -126,14 +126,14 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                <li><a href="{{ URL::to('user') }}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
-                <li><a href="{{ URL::to('role') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Role</span></a></li>
-                <li><a href="{{ URL::to('permission') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Permission</span></a></li>
-                <li><a href="{{ URL::to('Album') }}"><i class="fa fa-circle-o text-gray"></i> <span>Album</span></a></li>
-                <li><a href="{{ URL::to('blogs') }}"><i class="fa fa-circle-o text-red"></i> <span>Blog</span></a></li>
-                <li><a href="{{ URL::to('subscription') }}"><i class="fa fa-circle-o text-green"></i> <span>Subscription</span></a></li>
-                <li><a href="{{ URL::to('song') }}"><i class="fa fa-circle-o text-blue"></i> <span>Song</span></a></li>
-                <li><a href="{{ URL::to('comment') }}"><i class="fa fa-circle-o text-purple"></i> <span>Comment</span></a></li>
+                <li><a href="{{ URL::to('/admin_user') }}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
+                <li><a href="{{ URL::to('/admin_role') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Role</span></a></li>
+                <li><a href="{{ URL::to('/admin_permission') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Permission</span></a></li>
+                <li><a href="{{ URL::to('/admin_album') }}"><i class="fa fa-circle-o text-gray"></i> <span>Album</span></a></li>
+                <li><a href="{{ URL::to('/admin_blog') }}"><i class="fa fa-circle-o text-red"></i> <span>Blog</span></a></li>
+                <li><a href="{{ URL::to('/admin_subscription') }}"><i class="fa fa-circle-o text-green"></i> <span>Subscription</span></a></li>
+                <li><a href="{{ URL::to('/admin_song') }}"><i class="fa fa-circle-o text-blue"></i> <span>Song</span></a></li>
+                <li><a href="{{ URL::to('/admin_comment') }}"><i class="fa fa-circle-o text-purple"></i> <span>Comment</span></a></li>
                 </li>
             </ul>
 

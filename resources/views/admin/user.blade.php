@@ -127,7 +127,7 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <a href="{{ URL::to('user_form') }}" class="btn btn-success btn-lg" >Add</a>
+                        <a href="{{ URL::to('/admin_user_form') }}" class="btn btn-success btn-lg" >Add</a>
                     </div>
                 </div>
                 <!-- /.box-body -->

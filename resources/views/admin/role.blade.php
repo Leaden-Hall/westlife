@@ -55,7 +55,7 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a href="{{ URL::to('role_form') }}" class="btn btn-success btn-lg" >Add</a>
+                            <a href="{{ URL::to('/admin_role_form') }}" class="btn btn-success btn-lg" >Add</a>
                         </div>
                     </div>
                     <!-- /.box-body -->
