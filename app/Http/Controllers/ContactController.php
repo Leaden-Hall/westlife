@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use Illuminate\Http\Request;
+use App\Mail\MakeContact;
 
 class ContactController extends Controller
 {
@@ -28,6 +29,11 @@ class ContactController extends Controller
         'url' => 'nullable|url',
         'message' => 'required'
       ]);
+
+      $contactName = $request->name;
+      $contactMessage = $request->message;
+
+      \Mail::to($request->email)->send(new MakeContact($contactName, $contactMessage));
 
       Contact::create([
         'name' => $request->name,

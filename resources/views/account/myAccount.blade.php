@@ -39,5 +39,7 @@
 
     </div>
 
+    {{var_dump($user->isVerified())}}
+
 
 @endsection

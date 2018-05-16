@@ -26,4 +26,11 @@ class User extends Authenticatable
     public function Blogs() {
       return $this->hasMany(Blog::class, 'published_by', 'username');
     }
+
+    public function isVerified() {
+      if($this->verify === 1) {
+        return true;
+      }
+      return false;
+    }
 }

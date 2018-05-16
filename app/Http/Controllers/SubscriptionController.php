@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Subscription;
 use Illuminate\Http\Request;
 use Validator;
-use App\Mail\welcome;
+use App\Mail\Subscribe;
 
 class SubscriptionController extends Controller
 {
@@ -27,7 +27,7 @@ class SubscriptionController extends Controller
         return redirect('/')->withErrors($validator, 'err');
       }
 
-      \Mail::to($request->email)->send(new welcome());
+      \Mail::to($request->email)->send(new Subscribe());
 
       $subscription->email = $request->email;
       $subscription->save();

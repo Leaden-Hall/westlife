@@ -4,7 +4,19 @@
 <div class="container" id="login">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            @if (session('unverified'))
+                <div class="alert alert-danger mt-4" role="alert" style="border-left: 4px solid #dc3545">
+                    {{session('unverified')}}
+                </div>
+            @elseif(session('emailsent'))
+                <div class="alert alert-warning mt-4" role="alert" style="border-left: 4px solid #ffc107">
+                    {{session('emailsent')}}
+                </div>
+            @endif
+
             <div class="card my-5" style="background:#353535;">
+
                 <div class="card-header text-white" style="font-size:28px;letter-spacing:1px;">
                     <b>{{ __('Login') }}</b>
                 </div>
@@ -14,8 +26,8 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right"
-                            style="color:#fff;font-size: 16px;">
+                            <label for="email" class="col-sm-4 col-form-label text-md-right text-white"
+                            style="font-size: 16px;">
                                 {{ __('E-Mail Address') }}
                             </label>
 

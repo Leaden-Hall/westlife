@@ -56,6 +56,4 @@ Route::get('/contact', 'HomeController@contactPage');
 
 Route::get('/tour', 'TourController@index');
 
-Route::get('/verify', function() {
-  return view('verify');
-});
+Route::get('/verify/{user}/{hash}', 'UserController@verifyEmail');

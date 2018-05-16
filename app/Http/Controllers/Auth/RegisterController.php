@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Http\Request;
+use App\Mail\Welcome;
 class RegisterController extends Controller
 {
     /*
@@ -63,10 +65,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+      return User::create([
+          'username' => $data['username'],
+          'email' => $data['email'],
+          'password' => Hash::make($data['password']),
+      ]);
+
+
+    }
+
+    protected function registered(Request $request, $user)
+    {
+      $this->guard()->logout();
+
+      $username = $user->username;
+      $email = $user->email;
+      $hash = $user->remember_token;
+
+      \Mail::to($email)->send(new Welcome($username, $hash));
+
+      return redirect('/login')->with('emailsent', 'Verify your email address and you are all set');
+
+
     }
 }

@@ -13,7 +13,7 @@ class UserController extends Controller
 
   public function __construct()
   {
-    $this->middleware('auth');
+    $this->middleware('auth')->except('verifyEmail');
   }
 
   public function index()
@@ -68,6 +68,26 @@ class UserController extends Controller
 
     return redirect('/account')->with('message', 'Your password has been changed!');
 
+  }
+
+  public function verifyEmail(Request $request) {
+    $username = $request->user;
+    $token = $request->hash;
+
+    $registeredUser = User::all()->where('username', '=', $username)
+                        ->where('remember_token', '=', $token)->first();
+
+    if($registeredUser == null || $registeredUser->verify == '1') {
+      return view('verify');
+    }
+
+    $registeredUser->verify = '1';
+
+    $registeredUser->save();
+
+    $request->session()->flash('verificationSuccess', $username);
+
+    return view('verify');
   }
 
   public function destroy($id)
