@@ -23,7 +23,7 @@
             <h2 class="text-white mA-header">Account Information</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <span class="mA-item">Account Type: <b>{{$user->UserRole->Roles[0]->title}}</b></span>
+                    <span class="mA-item">Account Type: <b>{{$user->UserRole->Roles->first()->title}}</b></span>
                 </div>
 
                 <div class="col-md-6">
@@ -38,8 +38,6 @@
         </div>
 
     </div>
-
-    {{var_dump($user->isVerified())}}
 
 
 @endsection

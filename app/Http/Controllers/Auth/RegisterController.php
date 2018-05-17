@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Illuminate\Http\Request;
 use App\Mail\Welcome;
+
+use App\UserRole;
 class RegisterController extends Controller
 {
     /*
@@ -79,11 +81,19 @@ class RegisterController extends Controller
     {
       $this->guard()->logout();
 
+      $userId = $user->id;
       $username = $user->username;
       $email = $user->email;
       $hash = $user->remember_token;
 
       \Mail::to($email)->send(new Welcome($username, $hash));
+
+      UserRole::create([
+        'users_id' => $userId,
+        'roles_id' => 1
+      ]);
+
+
 
       return redirect('/login')->with('emailsent', 'Verify your email address and you are all set');
 
