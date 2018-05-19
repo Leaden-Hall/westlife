@@ -7,18 +7,18 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="css_admin/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('/css_admin/bootstrap.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{asset('/Ionicons/css/ionicons.min.css')}}">
     <!-- DataTables -->
-    <link rel="stylesheet" href="datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="css_admin/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{asset('/css_admin/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css_admin/_all-skins.min.css">
+    <link rel="stylesheet" href="{{asset('/css_admin/_all-skins.min.css')}}">
 
     <!-- Google Font -->
     <link rel="stylesheet"
@@ -29,7 +29,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
+        <a href="/admin/home" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>W</b>ES</span>
             <!-- logo for regular state and mobile devices -->
@@ -56,13 +56,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="avatar5.png" class="user-image" alt="User Image">
+                            <img src="{{asset('images/admin_avatar.jpg')}}" class="user-image" alt="User Image">
                             <span class="hidden -xs">Thanh Nguyen</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="avatar5.png" class="img-circle" alt="User Image">
+                                <img src="{{asset('images/admin_avatar.jpg')}}" class="img-circle" alt="User Image">
 
                                 <p>
                                     Thanh Nguyen - Web Developer
@@ -104,7 +104,7 @@
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="avatar5.png" class="img-circle" alt="User Image">
+                    <img src="{{asset('images/admin_avatar.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Thanh Nguyen</p>
@@ -126,14 +126,14 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="treeview">
-                <li><a href="{{ URL::to('/admin_user') }}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
-                <li><a href="{{ URL::to('/admin_role') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Role</span></a></li>
-                <li><a href="{{ URL::to('/admin_permission') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Permission</span></a></li>
-                <li><a href="{{ URL::to('/admin_album') }}"><i class="fa fa-circle-o text-gray"></i> <span>Album</span></a></li>
-                <li><a href="{{ URL::to('/admin_blog') }}"><i class="fa fa-circle-o text-red"></i> <span>Blog</span></a></li>
-                <li><a href="{{ URL::to('/admin_subscription') }}"><i class="fa fa-circle-o text-green"></i> <span>Subscription</span></a></li>
-                <li><a href="{{ URL::to('/admin_song') }}"><i class="fa fa-circle-o text-blue"></i> <span>Song</span></a></li>
-                <li><a href="{{ URL::to('/admin_comment') }}"><i class="fa fa-circle-o text-purple"></i> <span>Comment</span></a></li>
+                <li><a href="{{ URL::to('/admin/user') }}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
+                <li><a href="{{ URL::to('/admin/role') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Role</span></a></li>
+                <li><a href="{{ URL::to('/admin/permission') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Permission</span></a></li>
+                <li><a href="{{ URL::to('/admin/album') }}"><i class="fa fa-circle-o text-gray"></i> <span>Album</span></a></li>
+                <li><a href="{{ URL::to('/admin/blog') }}"><i class="fa fa-circle-o text-red"></i> <span>Blog</span></a></li>
+                <li><a href="{{ URL::to('/admin/subscription') }}"><i class="fa fa-circle-o text-green"></i> <span>Subscription</span></a></li>
+                <li><a href="{{ URL::to('/admin/song') }}"><i class="fa fa-circle-o text-blue"></i> <span>Song</span></a></li>
+                <li><a href="{{ URL::to('/admin/comment') }}"><i class="fa fa-circle-o text-purple"></i> <span>Comment</span></a></li>
                 </li>
             </ul>
 
@@ -154,20 +154,21 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="js_admin/dist/jquery.min.js"></script>
+<script src="{{asset('/js_admin/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="js_admin/bootstrap.min.js"></script>
+<script src="{{asset('/js_admin/bootstrap.min.js')}}"></script>
 <!-- DataTables -->
-<script src="datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="{{asset('/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+
+<script src="{{asset('/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <!-- SlimScroll -->
-<script src="js_admin/jquery.slimscroll.min.js"></script>
+<script src="{{asset('/js_admin/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
-<script src="js_admin/fastclick.js"></script>
+<script src="{{asset('/js_admin/fastclick.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="js_admin/adminlte.min.js"></script>
+<script src="{{asset('/js_admin/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="js_admin/demo.js"></script>
+<script src="{{asset('/js_admin/demo.js')}}"></script>
 <!-- page script -->
 <script>
     $(function () {

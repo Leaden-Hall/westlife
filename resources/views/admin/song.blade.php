@@ -104,7 +104,7 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a href="{{ URL::to('/admin_song_form') }}" class="btn btn-success btn-lg" >Add</a>
+                            <a href="{{ URL::to('/admin/song/form') }}" class="btn btn-success btn-lg" >Add</a>
                         </div>
                     </div>
                     <!-- /.box-body -->

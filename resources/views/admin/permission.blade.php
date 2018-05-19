@@ -86,7 +86,7 @@
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a class="btn btn-success btn-lg" href="{{ URL::to('/admin_permission_form') }}">Add</a>
+                            <a class="btn btn-success btn-lg" href="{{ URL::to('/admin/permission/form') }}">Add</a>
                         </div>
                     </div>
                     <!-- /.box-body -->
