@@ -49,7 +49,6 @@
                                         {{ Form::open(array('url' => '/comment/' . $value->id, 'method' => 'put')) }}
                                         {{ Form::submit('Edit', array('class' => 'btn text-primary float-right px-1 cm-links')) }}
                                         {{ Form::close() }}
-                                    </div>
 
                                 </div>
                             </div>

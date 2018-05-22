@@ -2,9 +2,8 @@
 
 @section('admin_content')
     <section class="content-header">
-        <h1>
+        <h1 class="text-center" style="font-size: 35px;">
             Permission management Table
-            <small>Create, Read, Update, Delete</small>
         </h1>
     </section>
 
@@ -19,69 +18,23 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Number</th>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Description</th>
                                 <th>Action</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
+                            @foreach($permissions as $key => $value)
                             <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>User managerment</td>
-                                <td>Lorem Ipsum is simply dummy text </td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
+                                <td>{{ str_limit($value->id)  }}</td>
+                                <td>{{ str_limit($value->name)  }}</td>
+                                <td>{{ str_limit($value->description)  }}</td>
+                                <td ><a href="{{ URL::to('/admin/edit_permission/'.$value->id) }}" class="btn btn-info" style="width:50%">Edit</a>
+                                <td><a href="{{ URL::to('/admin/delete_permission/'.$value->id) }}" onclick="return confirm('Are you sure you want to delete this permission?');" class="btn btn-danger">Delete</a>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Album managerment</td>
-                                <td>Lorem Ipsum is simply dummy text</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Blog managerment</td>
-                                <td>Lorem Ipsum is simply dummy text</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Blog managerment</td>
-                                <td>Lorem Ipsum is simply dummy text</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Blog managerment</td>
-                                <td>Lorem Ipsum is simply dummy text</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Blog managerment</td>
-                                <td>Lorem Ipsum is simply dummy text</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Blog managerment</td>
-                                <td>Lorem Ipsum is simply dummy text</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
