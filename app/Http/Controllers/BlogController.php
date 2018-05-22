@@ -15,16 +15,49 @@ class BlogController extends Controller
       return view('blog/index')->with('blogs', $blogs);
   }
 
+    public function index_admin()
+    {
+        $blogs = Blog::all();
+        return view('admin/blog')->with('blogs', $blogs);
+    }
+
 
   public function create()
   {
-      //
+      return view('admin/blog_form');
   }
 
 
   public function store(Request $request)
   {
-      //
+      $this->validate($request,[
+          'title' => 'required',
+          'summary' => 'required',
+          'content' => 'required',
+          'logo'    => 'image|required|max:1999'
+      ]);
+
+      if ($request->hasFile('logo')){
+          $filenameWithExt = $request->file('logo')->getClientOriginalName();
+          $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+          $extension = $request-> file('logo')->getClientOriginalExtension();
+          $filenameToStore = $filename.'_'.time().'_'.$extension;
+          $path = $request-> file('logo')->storeAs('public/logos', $filenameToStore);
+      }else{
+          $filenameToStore = 'noimage.jpg';
+      }
+
+      $input = $request->all();
+      $blog = new Blog;
+      $blog->title = $input["title"];
+      $blog->summary = $input["summary"];
+      $blog->content = $input["content"];
+      $blog->logo = $filenameToStore;
+      //$blog->published_by = Auth::user()->username;
+      $blog->published_by = 'thanhh';
+      $blog->save();
+
+      return redirect('admin/blog');
   }
 
 
@@ -37,21 +70,54 @@ class BlogController extends Controller
   }
 
 
-  public function edit(Blog $blog)
+  public function edit($id)
   {
-      //
+      $blog = Blog::find($id);
+      return view('admin/blog_edit')->with('blog', $blog);
   }
 
 
-  public function update(Request $request, Blog $blog)
+  public function update(Request $request, $id)
   {
-      //
+      $this->validate($request,[
+          'title' => 'required',
+          'summary' => 'required',
+          'content' => 'required',
+      ]);
+
+      $editFile = false;
+        if ($request->hasFile('logo')){
+            $filenameWithExt = $request->file('logo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request-> file('logo')->getClientOriginalExtension();
+            $filenameToStore = $filename.'_'.time().'_'.$extension;
+            $path = $request-> file('logo')->storeAs('public/logos', $filenameToStore);
+            $editFile = true;
+        }else{
+            $filenameToStore = 'noimage.jpg';
+        }
+
+      $input = $request->all();
+      $blog = Blog::find($id);
+      $blog->title = $input["title"];
+      $blog->summary = $input["summary"];
+      $blog->content = $input["content"];
+      if ($editFile){
+          $blog->logo = $filenameToStore;
+      }
+      //$blog->logo = $filenameToStore;
+      //$blog->published_by = Auth::user()->username;
+      $blog->published_by = 'thanhh';
+      $blog->save();
+
+      return redirect('admin/blog');
   }
 
 
-  public function destroy(Blog $blog)
+  public function destroy($id)
   {
-      //
+      Blog::find($id)->delete();
+      return redirect('admin/blog');
   }
 
   public function about() {
