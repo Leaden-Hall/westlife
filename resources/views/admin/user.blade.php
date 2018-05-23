@@ -16,114 +16,31 @@
             <div class="box">
 
                 <!-- /.box-header -->
-                <div class="box-body">
+                <center class="box-body">
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th>Number</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                            <th>Action</th>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">Username</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Verify Email</th>
+                            <th class="text-center">Created At</th>
+                            <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>thanh</td>
-                            <td>thanhnguyenduy.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
 
+                        @foreach($users as $user)
                         <tr>
-                            <td>2</td>
-                            <td>Minh</td>
-                            <td>Minh.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
+                            <td>{{$user->id}}</td>
+                            <td>{{$user->username}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->showVerification()}}</td>
+                            <td>{{$user->created_at->toDateTimeString()}}</td>
+                            <td><center><a href="" class="btn btn-danger">Delete</a></center>
+                            </td>
                         </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>Hai</td>
-                            <td>Hai.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>Vinh</td>
-                            <td>Vinh.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>Tu</td>
-                            <td>Tu.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td>trung</td>
-                            <td>trung.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>7</td>
-                            <td>Dinh</td>
-                            <td>Dinh.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>8</td>
-                            <td>ha</td>
-                            <td>ha.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>9</td>
-                            <td>thanh</td>
-                            <td>thanh.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>10</td>
-                            <td>trang</td>
-                            <td>trang.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td>thanh</td>
-                            <td>thanhnguyenduy.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-                        <tr>
-                            <td>12</td>
-                            <td>thanh</td>
-                            <td>thanhnguyenduy.dev@gmail.com</td>
-                            <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                            <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                        </tr>
-
-
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

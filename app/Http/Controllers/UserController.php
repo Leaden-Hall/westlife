@@ -16,7 +16,21 @@ class UserController extends Controller
     $this->middleware('auth')->except('verifyEmail');
   }
 
-  public function index()
+  //For admin
+  public function index() {
+    $users = User::all();
+
+    return view('admin/user', compact('users'));
+  }
+
+  public function destroy($id)
+  {
+    //
+  }
+
+
+  //For user
+  public function userAccount()
   {
     $user = Auth::user();
 
@@ -88,10 +102,5 @@ class UserController extends Controller
     $request->session()->flash('verificationSuccess', $username);
 
     return view('verify');
-  }
-
-  public function destroy($id)
-  {
-      //
   }
 }

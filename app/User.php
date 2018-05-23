@@ -33,4 +33,13 @@ class User extends Authenticatable
       }
       return false;
     }
+
+    public function showVerification() {
+      if($this->verify === 1) {
+        echo 'Yes';
+      }else {
+        echo 'No';
+      }
+
+    }
 }

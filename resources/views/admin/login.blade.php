@@ -7,16 +7,16 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="css_admin/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('/css_admin/bootstrap.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{asset('/onicons/css/ionicons.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="css_admin/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{asset('/css_admin/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css_admin/_all-skins.min.css">
+    <link rel="stylesheet" href="{{asset('css_admin/_all-skins.min.css')}}">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -24,19 +24,27 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="../../index2.html"><b>Administrator</b> <br>Westlife Band</a>
+        <a href="/admin/home"><b>Administrator</b> <br>Westlife Band</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="{{ URL::to('/admin_home') }}" method="post">
+        <h1 class="text-center">Log In</h1>
+
+        @if(session()->get('adminFailLogin') != null)
+            <div class="alert alert-danger" style="border-left: 5px solid #dc3545;">
+                {{session()->get('adminFailLogin')}}
+            </div>
+        @endif
+        <form action='/admin/login' method="post">
+            {{csrf_field()}}
+
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" placeholder="Email" name="email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" name="password">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -59,11 +67,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery 3 -->
-<script src="jquery/dist/jquery.min.js"></script>
+<script src="{{asset('jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="bootstrap.min.js"></script>
+<script src="{{asset('bootstrap.min.js')}}"></script>
 <!-- iCheck -->
-<script src="iCheck/icheck.min.js"></script>
+<script src="{{asset('iCheck/icheck.min.js')}}"></script>
 <script>
     $(function () {
         $('input').iCheck({

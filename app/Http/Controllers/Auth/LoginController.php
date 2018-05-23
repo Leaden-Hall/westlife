@@ -45,6 +45,7 @@ class LoginController extends Controller
   protected function authenticated(Request $request, $user)
   {
     if($user->isVerified() == false) {
+
       $this->logout($request);
       return redirect('/login')->with('unverified', 'You need to verify your email address');
     }

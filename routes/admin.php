@@ -10,15 +10,17 @@
 |
 */
 
-//Route::get('/', function () {
-//  dd('Welcome to admin subdomain.');
-//});
+Route::get('/', 'adminController@welcome');
+Route::post('/login', 'adminController@login');
+Route::get('/logout', 'adminController@logout');
 
 Route::view('/', 'admin/login');
+
 Route::view('/home', 'admin/home');
 
 
-Route::view('/user', 'admin/user');
+Route::get('/user', 'UserController@index');
+
 Route::view('/role', 'admin/role');
 Route::view('/permission', 'admin/permission');
 Route::view('/album', 'admin/album');
