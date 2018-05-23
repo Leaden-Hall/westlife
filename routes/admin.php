@@ -34,10 +34,11 @@ Route::get('/delete_permission/{id}','PermissionController@destroy');
 Route::get('/edit_permission/{id}','PermissionController@edit');
 Route::put('/update_permission/{id}','PermissionController@update');
 
+Route::get('subscription', 'SubscriptionController@index');
+Route::get('/delete_sub/{id}','SubscriptionController@destroy');
 
 Route::view('/album', 'admin/album');
 Route::view('/blog', 'admin/blog');
-Route::view('/subscription', 'admin/subscription');
 Route::view('/song', 'admin/song');
 Route::view('/comment', 'admin/comment');
 
