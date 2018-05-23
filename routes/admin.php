@@ -19,20 +19,37 @@ Route::view('/', 'admin/login');
 Route::view('/home', 'admin/home');
 
 
+
 Route::get('/user', 'UserController@index');
 
-Route::view('/role', 'admin/role');
-Route::view('/permission', 'admin/permission');
+
+Route::view('/user', 'admin/user');
+
+Route::get('/role', 'RoleController@index');
+Route::get('/role/form', 'RoleController@create');
+Route::post('/save_role','RoleController@store');
+Route::get('/delete_role/{id}','RoleController@destroy');
+Route::get('/edit_role/{id}','RoleController@edit');
+Route::put('/update_role/{id}','RoleController@update');
+
+Route::get('/permission', 'PermissionController@index');
+Route::get('/permission/form', 'PermissionController@create');
+Route::post('/save_permission','PermissionController@store');
+Route::get('/delete_permission/{id}','PermissionController@destroy');
+Route::get('/edit_permission/{id}','PermissionController@edit');
+Route::put('/update_permission/{id}','PermissionController@update');
+
+Route::get('subscription', 'SubscriptionController@index');
+Route::get('/delete_sub/{id}','SubscriptionController@destroy');
+
+
 Route::view('/album', 'admin/album');
 Route::view('/blog', 'admin/blog');
-Route::view('/subscription', 'admin/subscription');
 Route::view('/song', 'admin/song');
 Route::view('/comment', 'admin/comment');
 
 
-Route::view('/user/form', 'admin/user_form');
-Route::view('/role/form', 'admin/role_form');
-Route::view('/permission/form', 'admin/permission_form');
+Route::view('/user/form', 'PermissionController@create');
 Route::view('/album/form', 'admin/album_form');
 Route::view('/blog/form', 'admin/blog_form');
 Route::view('/sub/form', 'admin/sub_form');

@@ -77,7 +77,6 @@ class UserController extends Controller
     $this->validate($request, ['password' => 'required|string|min:6|confirmed']);
 
     $user = User::find(Auth::user()->id);
-    $user->password = Hash::make($request->password);
     $user->save();
 
     return redirect('/account')->with('message', 'Your password has been changed!');

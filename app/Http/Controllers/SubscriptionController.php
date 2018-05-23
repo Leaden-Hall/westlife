@@ -12,7 +12,8 @@ class SubscriptionController extends Controller
 
     public function index()
     {
-        //
+        $subs = Subscription::all();
+        return view('admin/subscription')->with('subs', $subs);
     }
 
 
@@ -36,8 +37,9 @@ class SubscriptionController extends Controller
 
     }
 
-    public function destroy(Subscription $subscription)
+    public function destroy($id)
     {
-        //
+        Subscription::find($id)->delete();
+        return redirect('admin/subscription');
     }
 }
