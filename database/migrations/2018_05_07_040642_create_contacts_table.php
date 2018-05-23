@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('email', 255)->unique();
             $table->string('url', 255)->nullable()->unique();
             $table->text('message');
+            $table->unsignedInteger('status');
             $table->timestamps();
         });
     }

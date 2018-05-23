@@ -37,6 +37,10 @@ Route::put('/update_permission/{id}','PermissionController@update');
 Route::get('subscription', 'SubscriptionController@index');
 Route::get('/delete_sub/{id}','SubscriptionController@destroy');
 
+Route::get('contact', 'ContactController@index');
+Route::get('/response_contact/{id}','ContactController@responseForm');
+Route::post('/response_contact/{id}','ContactController@response');
+
 Route::view('/album', 'admin/album');
 Route::view('/blog', 'admin/blog');
 Route::view('/song', 'admin/song');
