@@ -23,9 +23,14 @@ class UserController extends Controller
     return view('admin/user', compact('users'));
   }
 
-  public function destroy($id)
+  public function destroy(User $user)
   {
-    //
+    try {
+      $user->delete();
+      return redirect('/admin/user')->with('DeleteUser', 'Delete user successfully');
+    } catch (\Exception $e) {
+      $e->getMessage();
+    }
   }
 
 

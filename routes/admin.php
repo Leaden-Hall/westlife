@@ -11,36 +11,34 @@
 */
 
 Route::get('/', 'adminController@welcome');
+Route::get('/home', 'adminController@home');
+
 Route::post('/login', 'adminController@login');
 Route::get('/logout', 'adminController@logout');
 
-Route::view('/', 'admin/login');
+Route::middleware(['admin'])->group(function () {
+  Route::get('/user', 'UserController@index');
+  Route::get('/delete_user/{user}', 'UserController@destroy');
 
-Route::view('/home', 'admin/home');
+  Route::get('/role', 'RoleController@index');
+  Route::get('/role/form', 'RoleController@create');
+  Route::post('/save_role','RoleController@store');
+  Route::get('/delete_role/{id}','RoleController@destroy');
+  Route::get('/edit_role/{id}','RoleController@edit');
+  Route::put('/update_role/{id}','RoleController@update');
+
+  Route::get('/permission', 'PermissionController@index');
+  Route::get('/permission/form', 'PermissionController@create');
+  Route::post('/save_permission','PermissionController@store');
+  Route::get('/delete_permission/{id}','PermissionController@destroy');
+  Route::get('/edit_permission/{id}','PermissionController@edit');
+  Route::put('/update_permission/{id}','PermissionController@update');
+
+  Route::get('subscription', 'SubscriptionController@index');
+  Route::get('/delete_sub/{id}','SubscriptionController@destroy');
+});
 
 
-
-Route::get('/user', 'UserController@index');
-
-
-Route::view('/user', 'admin/user');
-
-Route::get('/role', 'RoleController@index');
-Route::get('/role/form', 'RoleController@create');
-Route::post('/save_role','RoleController@store');
-Route::get('/delete_role/{id}','RoleController@destroy');
-Route::get('/edit_role/{id}','RoleController@edit');
-Route::put('/update_role/{id}','RoleController@update');
-
-Route::get('/permission', 'PermissionController@index');
-Route::get('/permission/form', 'PermissionController@create');
-Route::post('/save_permission','PermissionController@store');
-Route::get('/delete_permission/{id}','PermissionController@destroy');
-Route::get('/edit_permission/{id}','PermissionController@edit');
-Route::put('/update_permission/{id}','PermissionController@update');
-
-Route::get('subscription', 'SubscriptionController@index');
-Route::get('/delete_sub/{id}','SubscriptionController@destroy');
 
 
 Route::view('/album', 'admin/album');

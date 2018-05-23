@@ -13,10 +13,16 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-            <div class="box">
 
-                <!-- /.box-header -->
-                <center class="box-body">
+            @if(session()->get('DeleteUser') != null)
+                <div class="alert alert-success">
+                    {{session()->get('DeleteUser')}}
+                </div>
+            @endif
+
+            <div class="box">
+                <div class="box-body">
+
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
@@ -37,20 +43,19 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->showVerification()}}</td>
                             <td>{{$user->created_at->toDateTimeString()}}</td>
-                            <td><center><a href="" class="btn btn-danger">Delete</a></center>
+                            <td><center><a href="{{ URL::to('/admin/delete_user/'.$user->id) }}"
+                                           class="btn btn-danger"
+                                           onclick="return confirm('Are you sure you want to delete this user?');">Delete</a></center>
                             </td>
                         </tr>
                         @endforeach
                         </tbody>
                     </table>
+
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
         </div>
-        <!-- /.col -->
     </div>
-    <!-- /.row -->
 </section>
-<!-- /.content -->
+
 @endsection

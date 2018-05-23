@@ -24,7 +24,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="/admin/home"><b>Administrator</b> <br>Westlife Band</a>
+        <a href="{{ URL::to('/admin/') }}"><b>Administrator</b> <br>Westlife Band</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -32,11 +32,11 @@
         <h1 class="text-center">Log In</h1>
 
         @if(session()->get('adminFailLogin') != null)
-            <div class="alert alert-danger" style="border-left: 5px solid #dc3545;">
+            <div class="alert alert-danger">
                 {{session()->get('adminFailLogin')}}
             </div>
         @endif
-        <form action='/admin/login' method="post">
+        <form action='{{ URL::to('/admin/login') }}' method="post">
             {{csrf_field()}}
 
             <div class="form-group has-feedback">

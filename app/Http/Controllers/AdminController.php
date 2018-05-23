@@ -9,10 +9,14 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-
+      $this->middleware('admin')->except(['welcome', 'login']);
     }
 
     public function welcome() {
+      if(Auth::check()) {
+        return view('admin/home');
+      }
+
       return view('admin/login');
     }
 
@@ -21,16 +25,28 @@ class AdminController extends Controller
       $credentials = $request->only('email', 'password');
 
       if (Auth::attempt($credentials)) {
-        if(Auth()->user()->UserRole->Roles->first()->title == 'administrator') {
-          return redirect('/admin/home');
-        }
 
+        if(Auth()->user()->admin()) {
+
+          if(Auth()->user()->isVerified()) {
+
+            $request->session()->regenerate();
+            return $this->home();
+
+          }
+          $this->logout();
+          return redirect('/admin/')->with('adminFailLogin', 'You need to verify your email');
+        }
         $this->logout();
         return redirect('/admin/')->with('adminFailLogin', 'You are not administrator');
-
       }
-
       return redirect('/admin/')->with('adminFailLogin', 'Please check your credentials and try again');
+    }
+
+
+    public function home() {
+      $admin = Auth::user();
+      return view('/admin/home', compact('admin'));
     }
 
     public function logout() {

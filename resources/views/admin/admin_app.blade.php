@@ -50,14 +50,10 @@
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
 
-
-                        <!-- Tasks: style can be found in dropdown.less -->
-
-                        <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('images/admin_avatar.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden -xs">Thanh Nguyen</span>
+                            <span class="hidden -xs">{{$admin->username}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -65,8 +61,8 @@
                                 <img src="{{asset('images/admin_avatar.jpg')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Thanh Nguyen - Web Developer
-                                    <small>Member since 2018</small>
+                                    {{$admin->username}} - Web Developer
+                                    <small>{{$admin->email}}</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -107,7 +103,7 @@
                     <img src="{{asset('images/admin_avatar.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Thanh Nguyen</p>
+                    <p>{{$admin->username}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>

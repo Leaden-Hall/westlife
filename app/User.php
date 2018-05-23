@@ -40,6 +40,12 @@ class User extends Authenticatable
       }else {
         echo 'No';
       }
+    }
 
+    public function admin() {
+      if($this->UserRole->Roles->first()->title === 'administrator') {
+        return true;
+      }
+      return false;
     }
 }
