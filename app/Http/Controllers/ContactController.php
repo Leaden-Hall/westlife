@@ -11,9 +11,27 @@ class ContactController extends Controller
 
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return view('admin/contact')->with('contacts', $contacts);
     }
 
+    public function responseForm($id)
+    {
+        $contact = Contact::find($id);
+        return view('admin/contact_form')->with('contact', $contact);
+    }
+
+    public function response(Request $request, $id)
+    {
+        $this->validate($request,[
+            'message' => 'required',
+        ]);
+
+        $input = $request->all();
+
+
+        return redirect('admin/contact');
+    }
 
     public function create()
     {
