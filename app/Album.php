@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
-    protected $fillable = ['title', 'logo', 'summary', 'released'];
+    protected $fillable = ['title', 'logo', 'summary', 'released', 'cover', 'note'];
 
   public function getDates()
   {

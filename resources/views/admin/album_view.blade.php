@@ -43,7 +43,7 @@
 
                             <div class="col-sm-4 text-center">
                                 <a class="btn btn-danger"
-                                   href="{{ URL::to('/admin/delete_album/'.$album->id) }}"
+                                   href="{{ URL::to('/admin/album/delete/' . $album->id)}}"
                                    onclick="return confirm('Are you sure you want to delete this album?');">
                                     Delete this album</a>
                             </div>

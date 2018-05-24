@@ -48,7 +48,45 @@ class AlbumController extends Controller
 
   public function store(Request $request)
   {
-    //
+    $path = 'Album/';
+
+    $this->validate($request,[
+      'title' => 'required|string|unique:albums',
+      'released' => 'required',
+      'note' => 'nullable|string',
+      'summary' => 'required|string'
+    ]);
+
+    $logo = $request->file('logo');
+    $logoExt = $logo->clientExtension();
+    $logoName = $request->title .".".$logoExt;
+
+    $logo->move('images/Album', $logoName);
+
+    $newCover = $request->file('newCover');
+    $defaultCover = $request->defaultCover;
+
+    if($defaultCover == null && $newCover != null) {
+      $coverExt = $newCover->clientExtension();
+      $coverImage =  $request->title . ' Cover' .".". $coverExt;
+      $newCover->move('images/Album', $coverImage);
+    }else if($newCover == null && $defaultCover != null) {
+      $coverImage = $defaultCover;
+    }else {
+      $coverImage = 'westlife-2.jpg';
+    }
+
+    Album::create([
+      'title' => $request->title,
+      'logo' => $path . $logoName,
+      'summary' => $request->summary,
+      'released' => $request->released,
+      'cover' => $path. $coverImage,
+      'note' => $request->note
+    ]);
+
+    return redirect('/admin/album');
+
   }
 
   public function edit(Album $album)
@@ -65,7 +103,12 @@ class AlbumController extends Controller
 
   public function destroy(Album $album)
   {
-    //
+    try {
+      $album->delete();
+      return redirect('/admin/album')->with('DeleteAlbum', 'Delete Album successfully');
+    } catch (\Exception $e) {
+      $e->getMessage();
+    }
   }
 
 

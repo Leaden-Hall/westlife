@@ -14,7 +14,12 @@
             <div class="col-xs-12">
                 <div class="box">
 
-                    <!-- /.box-header -->
+                    @if(session()->get('DeleteAlbum') != null)
+                        <div class="alert alert-success" style="margin: 20px 20px 0px 20px">
+                            {{session()->get('DeleteAlbum')}}
+                        </div>
+                    @endif
+
                     <div class="box-body">
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
@@ -34,12 +39,13 @@
                                 <td>{{$album->title}}</td>
                                 <td>
                                     <figure>
-                                        <img src="/images/{{$album->logo}}" width="100%" alt="{{$album->title}}">
+                                        <img src="/images/{{$album->logo}}" width="170px" alt="{{$album->title}}">
                                     </figure>
                                 </td>
                                 <td>{{$album->summary}}</td>
                                 <td><a href="{{ URL::to('/admin/album/view/' . $album->id)}}" class="btn btn-info">Detail</a></td>
-                                <td><a href="" class="btn btn-danger" >Delete</a></td>
+                                <td><a href="{{ URL::to('/admin/album/delete/' . $album->id)}}" class="btn btn-danger"
+                                       onclick="return confirm('Are you sure you want to delete this album?');">Delete</a></td>
                             </tr>
                             @endforeach
 

@@ -39,7 +39,9 @@ Route::middleware(['admin'])->group(function () {
 
   Route::get('/album', 'AlbumController@adminIndex');
   Route::get('/album/add', 'AlbumController@create');
+  Route::post('/album/add', 'AlbumController@store');
   Route::get('/album/view/{album}', 'AlbumController@view');
+  Route::get('/album/delete/{album}', 'AlbumController@destroy');
 });
 
 
