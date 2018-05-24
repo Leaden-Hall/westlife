@@ -42,19 +42,20 @@ Route::middleware(['admin'])->group(function () {
   Route::post('/album/add', 'AlbumController@store');
   Route::get('/album/view/{album}', 'AlbumController@view');
   Route::get('/album/delete/{album}', 'AlbumController@destroy');
+
+  Route::get('/blog', 'BlogController@index_admin');
+  Route::get('/blog/form', 'BlogController@create');
+  Route::post('/save_blog','BlogController@store');
+  Route::get('/delete_blog/{id}','BlogController@destroy');
+  Route::get('/edit_blog/{id}','BlogController@edit');
+  Route::put('/update_blog/{id}','BlogController@update');
+
+  Route::get('/contact', 'ContactController@index');
+  Route::get('/response_contact/{id}','ContactController@responseForm');
+  Route::post('/response_contact/{id}','ContactController@response');
 });
 
-
-
-
-Route::get('/contact', 'ContactController@index');
-Route::get('/response_contact/{id}','ContactController@responseForm');
-Route::post('/response_contact/{id}','ContactController@response');
-
-
-Route::view('/blog', 'admin/blog');
 Route::view('/song', 'admin/song');
-Route::view('/comment', 'admin/comment');
 
 
 Route::view('/user/form', 'PermissionController@create');
