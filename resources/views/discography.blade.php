@@ -3,65 +3,20 @@
         <div class="widget">
             <h3 class="widget-title">Discography</h3>
             <ul class="discography-list">
+                @foreach($albums as $album)
                 <li>
                     <figure class="cover">
-                        <img src="/images/thumbnail-1.jpg" alt="thumbnail 1">
+                        <img src="/images/{{$album->logo}}" alt="{{$album->title}}">
                     </figure>
 
                     <div class="detail">
-                        <h3><a href="#">Deserunt mollitia animi</a></h3>
-                        <span class="year">2004</span>
-                        <span class="track">17 tracks</span>
+                        <h3><a href="/album/{{preg_replace('/\s+/', '-', $album->title)}}">{{$album->title}}</a></h3>
+                        <span class="year">{{$album->released->year}}</span>
+                        <span class="track">{{$album->tracks()}} tracks</span>
                     </div>
                 </li>
+                @endforeach
 
-                <li>
-                    <figure class="cover">
-                        <img src="/images/thumbnail-2.jpg" alt="thumbnail 2">
-                    </figure>
-
-                    <div class="detail">
-                        <h3><a href="#">Deserunt mollitia animi</a></h3>
-                        <span class="year">2004</span>
-                        <span class="track">17 tracks</span>
-                    </div>
-                </li>
-
-                <li>
-                    <figure class="cover">
-                        <img src="/images/thumbnail-3.jpg" alt="thumbnail 3">
-                    </figure>
-
-                    <div class="detail">
-                        <h3><a href="#">Deserunt mollitia animi</a></h3>
-                        <span class="year">2004</span>
-                        <span class="track">17 tracks</span>
-                    </div>
-                </li>
-
-                <li>
-                    <figure class="cover">
-                        <img src="/images/thumbnail-4.jpg" alt="thumbnail 4">
-                    </figure>
-
-                    <div class="detail">
-                        <h3><a href="#">Deserunt mollitia animi</a></h3>
-                        <span class="year">2004</span>
-                        <span class="track">17 tracks</span>
-                    </div>
-                </li>
-
-                <li>
-                    <figure class="cover">
-                        <img src="/images/thumbnail-5.jpg" alt="thumbnail 5">
-                    </figure>
-
-                    <div class="detail">
-                        <h3><a href="#">Deserunt mollitia animi</a></h3>
-                        <span class="year">2004</span>
-                        <span class="track">17 tracks</span>
-                    </div>
-                </li>
             </ul>
         </div>
     </aside>

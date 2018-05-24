@@ -31,9 +31,21 @@
                                 <td>{{ str_limit($value->id)  }}</td>
                                 <td>{{ str_limit($value->name)  }}</td>
                                 <td>{{ str_limit($value->description)  }}</td>
-                                <td ><a href="{{ URL::to('/admin/edit_permission/'.$value->id) }}" class="btn btn-info" style="width:50%">Edit</a>
-                                <td><a href="{{ URL::to('/admin/delete_permission/'.$value->id) }}" onclick="return confirm('Are you sure you want to delete this permission?');" class="btn btn-danger">Delete</a>
-                            </tr>
+                                <td>
+                                    <div class="text-center">
+                                        <a href="{{ URL::to('/admin/edit_permission/'.$value->id) }}"
+                                           class="btn btn-info">Edit</a>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="text-center">
+                                        <a href="{{ URL::to('/admin/delete_permission/'.$value->id) }}"
+                                           onclick="return confirm('Are you sure you want to delete this permission?');"
+                                           class="btn btn-danger">Delete</a>
+                                    </div>
+
+                                </td>
                             @endforeach
 
                             </tbody>

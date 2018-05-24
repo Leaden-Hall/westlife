@@ -11,33 +11,77 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <!-- /.box-header -->
                     <div class="box-body">
-                        <div class="col-md-6 col-md-offset-3 well">
+                        <div class="well">
                             <div class="box-header with-border text-center">
-                                <h3 class="box-title" style="font-size: 30px;">Add Album</h3>
+                                <h3 class="box-title" style="font-size: 30px;">Add New Album</h3>
                             </div>
-                            <!-- /.box-header -->
-                            <!-- form start -->
-                            <form role="form">
+
+                            <form role="form" action="" method="POST">
                                 <div class="box-body">
-                                    <div class="form-group">
-                                        <label for="title">Album title</label>
-                                        <input type="text" class="form-control" id="title" placeholder="Enter album name">
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="Title">Title</label>
+                                            <input type="text" class="form-control" id="Title" placeholder="Title">
+                                        </div>
+
+                                        <div class="form-group col-sm-4">
+                                            <label for="Released">Released</label>
+                                            <input type="date" class="form-control" id="Released">
+                                        </div>
+
+                                        <div class="form-group col-sm-4">
+                                            <label for="Note">Note</label>
+                                            <input type="text" class="form-control" id="Note" placeholder="Note">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="logo">Album logo url</label>
-                                        <input type="text" class="form-control" id="logo" placeholder="Enter logo url">
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label class="custom-file-label" for="logo">Logo</label>
+                                            <input type="file" id="logo"
+                                                   accept="image/gif, image/jpeg, image/png"
+                                                   onchange="readLogo(this);">
+                                            <img id="logoPreview" src="#" alt="logo"
+                                                 style="display:none;margin-top:10px">
+                                        </div>
+                                    
+                                        <div class="form-group col-sm-8">
+                                            <label for="summary">Summary</label>
+                                            <textarea name="summary" class="form-control" id="summary"
+                                                      placeholder="Enter album summary" rows="7"></textarea>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="summary">Album summary</label>
-                                        <textarea name="summary" class="form-control" id="summary" placeholder="Enter album summary"></textarea>
+
+                                    <div class="form-row" style="margin-top:300px">
+                                        <div class="form-group col-sm-6">
+                                            <label for="uploadCover">Upload new Cover</label>
+                                            <input type="file" accept="image/gif, image/jpeg, image/png"
+                                                   onchange="readCover(this);"
+                                                   id="uploadCover">
+                                        </div>
+
+                                        <div class="form-group col-sm-6">
+                                            <label for="galleryCover">Select from gallery</label>
+                                            <select name="albumCover" id="galleryCover" class="form-control" onchange="readCover(this);">
+                                                @foreach($gallery->images as $image)
+                                                    <option value="http://westlife.com/images/{{$gallery->name}}/{{$image->url}}">{{$image->caption}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <img id="coverPreview" src="#" alt="logo" style="display:none;margin-top:10px">
+
                                     </div>
+
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-success btn-lg" >Add to database</button>
+                                    <button type="reset" class="btn btn-default btn-lg" onclick="clearImage();">Reset</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-success btn-lg">Add</button>
                                 </div>
+
                             </form>
                         </div>
                     </div>
@@ -48,4 +92,44 @@
         </div>
         <!-- /.row -->
     </section>
+
+    <script type="text/javascript">
+        function readLogo(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    $('#logoPreview')
+                        .attr('src', e.target.result)
+                        .width(150)
+                        .height(150)
+                        .css('display', 'block');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readCover(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    $('#coverPreview')
+                        .attr('src', e.target.result)
+                        .width('100%')
+                        .height('100%')
+                        .css('display', 'block');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function clearImage() {
+            $('#logoPreview').css('display', 'none');
+            $('#coverPreview').css('display', 'none');
+        }
+    </script>
 @endsection

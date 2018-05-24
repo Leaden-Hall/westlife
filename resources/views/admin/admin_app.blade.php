@@ -53,7 +53,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('images/admin_avatar.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden -xs">{{$admin->username}}</span>
+                            <span class="hidden -xs">{{session()->get('admin')->username}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -61,8 +61,8 @@
                                 <img src="{{asset('images/admin_avatar.jpg')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    {{$admin->username}} - Web Developer
-                                    <small>{{$admin->email}}</small>
+                                    {{session()->get('admin')->username}} - Web Developer
+                                    <small>{{session()->get('admin')->email}}</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
@@ -103,7 +103,7 @@
                     <img src="{{asset('images/admin_avatar.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>{{$admin->username}}</p>
+                    <p>{{session()->get('admin')->username}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                 <li><a href="{{ URL::to('/admin/blog') }}"><i class="fa fa-circle-o text-red"></i> <span>Blog</span></a></li>
                 <li><a href="{{ URL::to('/admin/subscription') }}"><i class="fa fa-circle-o text-green"></i> <span>Subscription</span></a></li>
                 <li><a href="{{ URL::to('/admin/song') }}"><i class="fa fa-circle-o text-blue"></i> <span>Song</span></a></li>
-                <li><a href="{{ URL::to('/admin/comment') }}"><i class="fa fa-circle-o text-purple"></i> <span>Comment</span></a></li>
+                <li><a href="{{ URL::to('/admin/contact') }}"><i class="fa fa-circle-o text-purple"></i> <span>Contact</span></a></li>
                 </li>
             </ul>
 
@@ -137,14 +137,10 @@
         <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         @yield('admin_content')
     </div>
-    <!-- /.content-wrapper -->
 
-    <!-- Add the sidebar's background. This div must be placed
-         immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->

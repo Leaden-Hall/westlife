@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,8 @@ class BlogController extends Controller
   public function index()
   {
       $blogs = Blog::all();
-      return view('blog/index')->with('blogs', $blogs);
+      $albums = Album::orderBy('created_at', 'desc')->take(5)->get();
+      return view('blog/index', compact('blogs', 'albums'));
   }
 
 
@@ -32,7 +34,8 @@ class BlogController extends Controller
   {
       $post = Blog::find($id);
       $comments = Blog::with('comments')->find($id)->comments;
-      return view('blog/post')->with(compact('post', 'comments'));
+      $albums = Album::orderBy('created_at', 'desc')->take(5)->get();
+      return view('blog/post')->with(compact('post', 'comments', 'albums'));
 
   }
 
@@ -55,7 +58,8 @@ class BlogController extends Controller
   }
 
   public function about() {
-    return view('about');
+    $albums = Album::orderBy('created_at', 'desc')->take(5)->get();
+    return view('about', compact('albums'));
   }
 
   public function manageBlog() {

@@ -36,16 +36,20 @@ Route::middleware(['admin'])->group(function () {
 
   Route::get('subscription', 'SubscriptionController@index');
   Route::get('/delete_sub/{id}','SubscriptionController@destroy');
+
+  Route::get('/album', 'AlbumController@adminIndex');
+  Route::get('/album/add', 'AlbumController@create');
+  Route::get('/album/view/{album}', 'AlbumController@view');
 });
 
 
 
 
-Route::get('contact', 'ContactController@index');
+Route::get('/contact', 'ContactController@index');
 Route::get('/response_contact/{id}','ContactController@responseForm');
 Route::post('/response_contact/{id}','ContactController@response');
 
-Route::view('/album', 'admin/album');
+
 Route::view('/blog', 'admin/blog');
 Route::view('/song', 'admin/song');
 Route::view('/comment', 'admin/comment');

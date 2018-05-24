@@ -19,7 +19,7 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Number</th>
+                                <th>ID</th>
                                 <th>Title</th>
                                 <th>Logo</th>
                                 <th>Summary</th>
@@ -28,64 +28,25 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($albums as $album)
                             <tr>
-                                <td>1</td>
-                                <td>Lorem Ipsum </td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td>Lorem Ipsum is simply </td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
+                                <td>{{$album->id}}</td>
+                                <td>{{$album->title}}</td>
+                                <td>
+                                    <figure>
+                                        <img src="/images/{{$album->logo}}" width="100%" alt="{{$album->title}}">
+                                    </figure>
+                                </td>
+                                <td>{{$album->summary}}</td>
+                                <td><a href="{{ URL::to('/admin/album/view/' . $album->id)}}" class="btn btn-info">Detail</a></td>
+                                <td><a href="" class="btn btn-danger" >Delete</a></td>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Lorem Ipsum </td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td>Lorem Ipsum is simply  </td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Lorem Ipsum </td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td>Lorem Ipsum is simply  </td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>Lorem Ipsum </td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>Lorem Ipsum </td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td>Lorem Ipsum is simply </td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>Lorem Ipsum </td>
-                                <td>Lorem Ipsum is simply</td>
-                                <td>Lorem Ipsum is simply </td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a class="btn btn-success btn-lg" href="{{ URL::to('/admin/album/form') }}">Add</a>
+                            <a class="btn btn-success btn-lg" href="{{ URL::to('/admin/album/add') }}">Add</a>
                         </div>
                     </div>
                     <!-- /.box-body -->

@@ -26,12 +26,12 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Username</th>
-                            <th class="text-center">Email</th>
-                            <th class="text-center">Verify Email</th>
-                            <th class="text-center">Created At</th>
-                            <th class="text-center">Action</th>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Verify Email</th>
+                            <th>Created At</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>

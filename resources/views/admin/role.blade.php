@@ -32,15 +32,22 @@
                                 <td>{{ str_limit($value->id)  }}</td>
                                 <td>{{ str_limit($value->title)  }}</td>
                                 <td>{{ str_limit($value->description)  }}</td>
-                                <td ><a href="{{ URL::to('/admin/edit_role/'.$value->id) }}" class="btn btn-info" style="width:50%">Edit</a>
-                                <td><a href="{{ URL::to('/admin/delete_role/'.$value->id) }}" onclick="return confirm('Are you sure you want to delete this role?');" class="btn btn-danger">Delete</a>
-                                {{--{{ Form::open(array('url' => 'delete_role/' . $value->id, 'id'=>'form')) }}--}}
-                                {{--{{ Form::hidden('_method', 'post') }}--}}
-                                {{--{{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}--}}
-                                {{--{{ Form::close() }}</td>--}}
-                                {{--{!! Form::open(array('url' => 'save_role', 'method' => 'POST')) !!}--}}
-                                {{--{{Form::submit('Delete', array('class' => 'btn btn-danger')) }}--}}
-                                {{--{!! Form::close() !!}--}}
+
+                                <td>
+                                    <div class=" text-center">
+                                        <a href="{{ URL::to('/admin/edit_role/'.$value->id) }}"
+                                            class="btn btn-info">Edit</a>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class=" text-center">
+                                        <a href="{{ URL::to('/admin/delete_role/'.$value->id) }}"
+                                            onclick="return confirm('Are you sure you want to delete this role?');"
+                                           class="btn btn-danger">Delete</a>
+                                    </div>
+                                </td>
+
                             </tr>
                             @endforeach
 

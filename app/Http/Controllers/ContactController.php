@@ -57,7 +57,8 @@ class ContactController extends Controller
         'name' => $request->name,
         'email' =>$request->email,
         'url' => $request->url,
-        'message' => $request->message
+        'message' => $request->message,
+        'status' => '0'
       ]);
 
       return redirect()->back()->with('message', 'contacted');
