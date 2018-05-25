@@ -125,8 +125,8 @@
                 <li><a href="{{ URL::to('/admin/user') }}"><i class="fa fa-circle-o text-red"></i> <span>User</span></a></li>
                 <li><a href="{{ URL::to('/admin/role') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Role</span></a></li>
                 <li><a href="{{ URL::to('/admin/permission') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Permission</span></a></li>
-                <li><a href="{{ URL::to('/admin/album') }}"><i class="fa fa-circle-o text-gray"></i> <span>Album</span></a></li>
-                <li><a href="{{ URL::to('/admin/blog') }}"><i class="fa fa-circle-o text-red"></i> <span>Blog</span></a></li>
+                <li><a href="{{ URL::to('/admin/album') }}"><i class="fa fa-circle-o text-orange"></i> <span>Album</span></a></li>
+                <li><a href="{{ URL::to('/admin/blog') }}"><i class="fa fa-circle-o text-fuchsia"></i> <span>Blog</span></a></li>
                 <li><a href="{{ URL::to('/admin/subscription') }}"><i class="fa fa-circle-o text-green"></i> <span>Subscription</span></a></li>
                 <li><a href="{{ URL::to('/admin/song') }}"><i class="fa fa-circle-o text-blue"></i> <span>Song</span></a></li>
                 <li><a href="{{ URL::to('/admin/contact') }}"><i class="fa fa-circle-o text-purple"></i> <span>Contact</span></a></li>

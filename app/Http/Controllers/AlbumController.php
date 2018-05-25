@@ -91,13 +91,64 @@ class AlbumController extends Controller
 
   public function edit(Album $album)
   {
-    //
+    $gallery = Gallery::where('name', '=', 'Band')->first();
+    return view('admin/album_edit', compact('album', 'gallery'));
   }
 
 
   public function update(Request $request, Album $album)
   {
-    //
+    $path = 'Album/';
+    $newLogo = $request->file('logo');
+    $newCover = $request->file('newCover');
+    $defaultCover = $request->defaultCover;
+
+    if($request->title == null) {
+      $this->validate($request,[
+        'title' => 'nullable|string|unique:albums',
+        'released' => 'required',
+        'note' => 'nullable|string',
+        'summary' => 'required|string'
+      ]);
+      $albumTitle = $album->title;
+    }else {
+      $this->validate($request,[
+        'title' => 'required|string|unique:albums',
+        'released' => 'required',
+        'note' => 'nullable|string',
+        'summary' => 'required|string'
+      ]);
+      $albumTitle = $request->title;
+    }
+
+    if($newLogo == null) {
+      $updateLogo = $album->logo;
+    }else {
+      $updateLogoExt = $newLogo->clientExtension();
+      $updateLogo = $path . $request->title .".".$updateLogoExt;
+      $newLogo->move('images/Album', $updateLogo);
+    }
+
+    if($newCover == null && $defaultCover == 'none') {
+      $updateCover = $album->cover;
+    }else if ($newCover != null && $defaultCover == null) {
+      $updateCoverExt = $newCover->clientExtension();
+      $updateCover =  $path . $request->title . ' Cover' .".". $updateCoverExt;
+      $newCover->move('images/Album', $updateCover);
+    }else if($newCover == null && $defaultCover) {
+      $updateCover = $path .$defaultCover;
+    }
+
+    $album->update([
+      'title' => $albumTitle,
+      'logo' => $updateLogo,
+      'summary' =>$request->summary,
+      'released' => $request->released,
+      'cover' => $updateCover,
+      'note' => $request->note
+    ]);
+
+    return redirect('/admin/album/view/' .$album->id)->with('UpdateAlbum', 'Update album successfully');
   }
 
 

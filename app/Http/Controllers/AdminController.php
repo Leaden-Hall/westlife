@@ -2,8 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Doctrine\Common\Lexer\AbstractLexer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
+use App\User;
+use App\Role;
+use App\Permission;
+use App\Album;
+use App\Blog;
+use App\Subscription;
+use App\Song;
+use App\Contact;
 
 class AdminController extends Controller
 {
@@ -49,7 +59,19 @@ class AdminController extends Controller
 
 
     public function home() {
-      return view('/admin/home');
+      $users = User::all();
+      $roles = Role::all();
+      $permissions = Permission::all();
+      $albums = Album::all();
+      $blogs = Blog::all();
+      $subscriptions = Subscription::all();
+      $contacts = Contact::all();
+      $songs = Song::all();
+
+
+      return view('/admin/home', compact('users', 'roles', 'permissions',
+                                              'albums', 'blogs', 'subscriptions', 'contacts',
+                                                'songs'));
     }
 
 

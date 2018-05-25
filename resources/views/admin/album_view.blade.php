@@ -30,6 +30,13 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-body">
+
+                        @if(session()->get('UpdateAlbum') != null)
+                            <div class="alert alert-success" style="margin: 20px 20px 20px 20px">
+                                {{session()->get('UpdateAlbum')}}
+                            </div>
+                        @endif
+
                         <div class="row">
                             <div class="col-sm-4 text-center">
                                 <a class="btn btn-success"
@@ -38,7 +45,7 @@
 
                             <div class="col-sm-4 text-center">
                                 <a class="btn btn-primary"
-                                   href="{{ URL::to('/admin/edit_album/'.$album->id) }}">Edit this album</a>
+                                   href="{{ URL::to('/admin/album/edit/'.$album->id) }}">Edit this album</a>
                             </div>
 
                             <div class="col-sm-4 text-center">

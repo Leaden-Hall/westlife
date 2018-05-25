@@ -7,7 +7,9 @@ use App\Comment;
 
 class Blog extends Model
 {
-    function comments() {
-        return $this->hasMany(Comment::class);
-    }
+  protected $fillable = ['title', 'summary', 'logo', 'content', 'published_by'];
+
+  function comments() {
+      return $this->hasMany(Comment::class);
+  }
 }

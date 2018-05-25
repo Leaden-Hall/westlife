@@ -3,7 +3,7 @@
 @section('admin_content')
     <section class="content-header">
         <h1>
-            Blog management Table
+            Blog Post management
             <small>Create, Read, Update, Delete</small>
         </h1>
     </section>
@@ -14,7 +14,15 @@
             <div class="col-xs-12">
                 <div class="box">
 
-                    <!-- /.box-header -->
+                    @if(session()->get('deleteBlog') != null)
+                        <div class="alert alert-success" style="margin: 20px 20px 0px 20px">
+                            {{session()->get('deleteBlog')}}
+                        </div>
+                    @elseif(session()->get('updateBlog') != null)
+                        <div class="alert alert-success" style="margin: 20px 20px 0px 20px">
+                            {{session()->get('updateBlog')}}
+                        </div>
+                    @endif
                     <div class="box-body">
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
@@ -31,7 +39,7 @@
                             <tbody>
                             @foreach($blogs as $key => $value)
                                 <tr>
-                                    {{--<td>1</td>--}}
+                                    <td>{{$value->id}}</td>
                                     <td>{{ str_limit($value->title, $limit = 15, $end = '...')  }}</td>
                                     <td>{{ str_limit($value->summary, $limit = 20, $end = '...')  }}</td>
                                     <td>{{ str_limit($value->content, $limit = 20, $end = '...')  }}</td>

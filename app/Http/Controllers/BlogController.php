@@ -6,20 +6,21 @@ use App\Blog;
 use App\Album;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
 
   public function index()
   {
-      $blogs = Blog::all();
+      $blogs = Blog::orderBy('created_at', 'desc')->get();
       $albums = Album::orderBy('created_at', 'desc')->take(5)->get();
       return view('blog/index', compact('blogs', 'albums'));
   }
 
     public function index_admin()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('created_at', 'desc')->get();
         return view('admin/blog')->with('blogs', $blogs);
     }
 
@@ -32,29 +33,26 @@ class BlogController extends Controller
 
   public function store(Request $request)
   {
-      $this->validate($request,[
-          'title' => 'required',
-          'summary' => 'required',
-          'content' => 'required',
-          'logo'    => 'image|required|max:1999'
-      ]);
+    $path = 'Blogs/';
 
-      if ($request->hasFile('logo')){
-          $filenameWithExt = $request->file('logo')->getClientOriginalName();
-          $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-          $extension = $request-> file('logo')->getClientOriginalExtension();
-          $filenameToStore = $filename.'_'.time().'_'.$extension;
-          $path = $request-> file('logo')->storeAs('public/logos', $filenameToStore);
-      }else{
-          $filenameToStore = 'noimage.jpg';
-      }
+    $this->validate($request,[
+        'title' => 'required|unique:blogs',
+        'summary' => 'required',
+        'content' => 'required',
+        'logo'    => 'image|required|max:1999'
+    ]);
+
+    $logo = $request-> file('logo');
+    $logoExt = $logo->clientExtension();
+    $logoName = $path . time() .".".$logoExt;
+    $logo->move('images/Blogs', $logoName);
 
       $input = $request->all();
       $blog = new Blog;
       $blog->title = $input["title"];
       $blog->summary = $input["summary"];
       $blog->content = $input["content"];
-      $blog->logo = $filenameToStore;
+      $blog->logo = $logoName;
       $blog->published_by = Auth::user()->username;
       $blog->save();
 
@@ -79,47 +77,56 @@ class BlogController extends Controller
   }
 
 
-  public function update(Request $request, $id)
+  public function update(Request $request, Blog $blog)
   {
+    $path = 'Blogs/';
+
+    if($request->title == null) {
       $this->validate($request,[
-          'title' => 'required',
-          'summary' => 'required',
-          'content' => 'required',
+        'summary' => 'required',
+        'content' => 'required',
+        'logo' => 'nullable|image'
       ]);
+      $blogTitle = $blog->title;
+    }else {
+      $this->validate($request,[
+        'title' => 'required',
+        'summary' => 'required',
+        'content' => 'required',
+        'logo' => 'nullable|image'
+      ]);
+      $blogTitle = $request->title;
+    }
 
-      $editFile = false;
-        if ($request->hasFile('logo')){
-            $filenameWithExt = $request->file('logo')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request-> file('logo')->getClientOriginalExtension();
-            $filenameToStore = $filename.'_'.time().'_'.$extension;
-            $path = $request-> file('logo')->storeAs('public/logos', $filenameToStore);
-            $editFile = true;
-        }else{
-            $filenameToStore = 'noimage.jpg';
-        }
+    $updateLogo = $request-> file('logo');
 
-      $input = $request->all();
-      $blog = Blog::find($id);
-      $blog->title = $input["title"];
-      $blog->summary = $input["summary"];
-      $blog->content = $input["content"];
-      if ($editFile){
-          $blog->logo = $filenameToStore;
-      }
-      //$blog->logo = $filenameToStore;
-      //$blog->published_by = Auth::user()->username;
-      $blog->published_by = 'thanhh';
-      $blog->save();
+    if($updateLogo != null) {
+      $updateLogoExt = $updateLogo->clientExtension();
+      $updateLogoName = $path . time() .".".$updateLogoExt;
+      $updateLogo->move('images/Blogs', $updateLogoName);
+      \File::delete('images/'. $blog->logo);
+    }else {
+      $updateLogoName = $blog->logo;
+    }
 
-      return redirect('admin/blog');
+
+
+    $blog->update ([
+      'title' => $blogTitle,
+      'summary' =>$request->summary,
+      'logo' => $updateLogoName,
+      'content' => $request->content,
+      'published_by' => Auth::user()->username
+    ]);
+
+    return redirect('admin/blog')->with('updateBlog', 'Update Blog Post Successfully');
   }
 
 
   public function destroy($id)
   {
       Blog::find($id)->delete();
-      return redirect('admin/blog');
+      return redirect('admin/blog')->with('deleteBlog', 'Delete Blog Post Successfully');
   }
 
   public function about() {
@@ -133,8 +140,4 @@ class BlogController extends Controller
     return view('account/blogs', compact('blogs', 'user'));
   }
 
-  public function editBlog(Blog $blog) {
-    $user = Auth::user();
-
-  }
 }

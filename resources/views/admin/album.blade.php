@@ -55,12 +55,12 @@
                             <a class="btn btn-success btn-lg" href="{{ URL::to('/admin/album/add') }}">Add</a>
                         </div>
                     </div>
-                    <!-- /.box-body -->
+
                 </div>
-                <!-- /.box -->
+
             </div>
-            <!-- /.col -->
+
         </div>
-        <!-- /.row -->
+
     </section>
 @endsection
