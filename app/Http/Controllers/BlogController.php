@@ -109,13 +109,11 @@ class BlogController extends Controller
       $updateLogoName = $blog->logo;
     }
 
-
-
     $blog->update ([
       'title' => $blogTitle,
       'summary' =>$request->summary,
       'logo' => $updateLogoName,
-      'content' => $request->content,
+      'content' => $request['content'],
       'published_by' => Auth::user()->username
     ]);
 
@@ -132,12 +130,6 @@ class BlogController extends Controller
   public function about() {
     $albums = Album::orderBy('created_at', 'desc')->take(5)->get();
     return view('about', compact('albums'));
-  }
-
-  public function manageBlog() {
-    $user = Auth::user();
-    $blogs = $user->Blogs;
-    return view('account/blogs', compact('blogs', 'user'));
   }
 
 }

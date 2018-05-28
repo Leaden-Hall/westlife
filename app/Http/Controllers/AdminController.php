@@ -27,7 +27,7 @@ class AdminController extends Controller
       if(Auth::check() && Auth()->user()->admin()) {
           $admin = Auth::user();
           $request->session()->put('admin', $admin);
-          return view('admin/home');
+          return $this->home();
       }
 
       return view('admin/login');

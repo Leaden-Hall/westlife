@@ -54,12 +54,14 @@ class AlbumController extends Controller
       'title' => 'required|string|unique:albums',
       'released' => 'required',
       'note' => 'nullable|string',
-      'summary' => 'required|string'
+      'summary' => 'required|string',
+      'logo' => 'required'
     ]);
 
     $logo = $request->file('logo');
     $logoExt = $logo->clientExtension();
     $logoName = $request->title .".".$logoExt;
+
 
     $logo->move('images/Album', $logoName);
 

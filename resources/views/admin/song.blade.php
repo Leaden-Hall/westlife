@@ -13,98 +13,57 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
+                    @if(session()->get('addSong') != null)
+                        <div class="alert alert-success" style="margin: 20px">
+                            {{session()->get('addSong')}}
+                        </div>
 
-                    <!-- /.box-header -->
+                    @elseif(session()->get('deleteSong') != null)
+                        <div class="alert alert-success" style="margin: 20px">
+                            {{session()->get('deleteSong')}}
+                        </div>
+                    @endif
+
+
+
                     <div class="box-body">
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>Number</th>
+                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Album</th>
-                                <th>Url</th>
+                                <th>File Storage</th>
                                 <th>Action</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @foreach($songs as $song)
                             <tr>
-                                <td>1</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
+                                <td>{{$song->id}}</td>
+                                <td>{{$song->name}}</td>
+                                <td>{{$song->album->title}}</td>
+                                <td>albums/{{$song->album->title}}/{{$song->url}}</td>
+                                <td>
+                                    <div class="text-sm-center">
+                                        <a href="{{ URL::to('/admin/song/edit/'.$song->id) }}" class="btn btn-primary">Edit</a>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        <a href="{{ URL::to('/admin/song/delete/'.$song->id) }}" class="btn btn-danger"
+                                            onclick="return confirm('Are you sure you want to delete this song?');">Delete</a>
+                                    </div>
+
+                                </td>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-                            <tr>
-                                <td>8</td>
-                                <td>My love</td>
-                                <td>If I Let You Go</td>
-                                <td>songs/mylove.mp3</td>
-                                <td ><form><input type=submit class="btn btn-info" value="Edit" style="width:50%">
-                                <td ><form><input type=submit class="btn btn-danger" value="Delete" style="width:50%">
-                            </tr>
-
-
+                            @endforeach
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a href="{{ URL::to('/admin/song/form') }}" class="btn btn-success btn-lg" >Add</a>
+                            <a href="{{ URL::to('/admin/song/add') }}" class="btn btn-success btn-lg">Add New Song</a>
                         </div>
                     </div>
                     <!-- /.box-body -->

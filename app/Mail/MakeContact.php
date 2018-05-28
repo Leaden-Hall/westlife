@@ -11,11 +11,6 @@ class MakeContact extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
 
     public $contactName;
 
@@ -28,11 +23,7 @@ class MakeContact extends Mailable
         $this->contactMessage = $contactMessage;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
+
     public function build()
     {
         return $this->from('westlifefithanu@gmail.com')

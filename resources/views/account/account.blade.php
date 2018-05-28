@@ -25,11 +25,6 @@
                 <a class="nav-link py-3 @if(strpos(url()->current(), '/account/password') != false ) selected @endif"
                    href="/account/password">
                     Password</a>
-
-                <a class="nav-link py-3 @if(strpos(url()->current(), '/account/blogs') != false ) selected @endif"
-                   href="/account/blogs">
-                    Blogs</a>
-
             </div>
         </div>
 

@@ -54,14 +54,14 @@ Route::middleware(['admin'])->group(function () {
 
   Route::get('/contact', 'ContactController@index');
   Route::get('/response_contact/{id}','ContactController@responseForm');
-  Route::post('/response_contact/{id}','ContactController@response');
+  Route::post('/response_contact/{contact}','ContactController@response');
+  Route::get('/contact/delete/{contact}','ContactController@destroy');
+
+  Route::get('/song', 'SongController@index');
+  Route::get('/song/add', 'SongController@create');
+  Route::post('/song/add', 'SongController@store');
+  Route::get('/song/edit/{song}', 'SongController@edit');
+  Route::post('/song/edit/{song}', 'SongController@update');
+  Route::get('/song/delete/{song}', 'SongController@destroy');
+
 });
-
-Route::view('/song', 'admin/song');
-
-
-Route::view('/user/form', 'PermissionController@create');
-Route::view('/album/form', 'admin/album_form');
-Route::view('/blog/form', 'admin/blog_form');
-Route::view('/sub/form', 'admin/sub_form');
-Route::view('/song/form', 'admin/song_form');
