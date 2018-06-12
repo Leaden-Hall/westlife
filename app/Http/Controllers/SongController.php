@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Song;
 use Illuminate\Http\Request;
 use App\Album;
+use Illuminate\Support\Facades\Storage;
 
 class SongController extends Controller
 {
@@ -36,15 +37,15 @@ class SongController extends Controller
       $song = $request->file('upload');
       $songExt = $song->getClientOriginalExtension();
       $songName = $request->name . "." .$songExt;
-      $song->move('albums/'.$albumName, $songName);
+      $path = 'storage'.DIRECTORY_SEPARATOR.'albums'.DIRECTORY_SEPARATOR. $albumName;
+
+      $song->move($path, $songName);
 
       Song::create([
         'album_id' => $request->album,
         'name' => $request->name,
         'url' => $songName
       ]);
-
-      $songs = Song::all();
 
       return redirect('admin/song')->with('addSong', 'A new song has been added successfully');
 
@@ -73,8 +74,14 @@ class SongController extends Controller
     {
 
       try {
+        $albumName = Album::where('id', '=', $song->album_id)->first()->title;
+        $path = 'storage'.DIRECTORY_SEPARATOR.'albums'.DIRECTORY_SEPARATOR. $albumName.DIRECTORY_SEPARATOR. $song->url;
+        unlink($path);
+
         $song->delete();
+
         return redirect('admin/song')->with('deleteSong', 'The song has been deleted successfully');
+
       } catch (\Exception $e) {
         $e->getMessage();
       }

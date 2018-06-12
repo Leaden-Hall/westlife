@@ -27,66 +27,63 @@
                         </p>
                     </div>
 
+                    <div class="mt-5">
+                        <h1 style="border-bottom: 2px solid;color:#fd5927">{{count($comments)}} Comments</h1>
+
+                        @foreach($comments as $key => $value)
+                            <div class="card mb-2 cm-card bg-dark ">
+                                <div class="card-body">
+                                    <h4 class="card-title text-white font-weight-bold">{{ $value->commenter }}</h4>
+
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ $value->created_at->diffForHumans() }}</h6>
+
+                                    <p class="card-text text-light">{{ $value->content }}</p>
+                                    @if(Auth::user())
+                                        @if(Auth::user()->username === $value->commenter)
+                                            <div class="">
+                                                {{ Form::open(array('url' => '/comment/' . $value->id)) }}
+                                                {{ Form::hidden('_method', 'delete') }}
+                                                {{ Form::submit('Delete', array('class' => 'btn text-danger float-right px-1 cm-links', 'style'=>'margin-left: 5px;')) }}
+                                                {{ Form::close() }}
+
+                                                {{ Form::open(array('url' => '/comment/' . $value->id, 'method' => 'put')) }}
+                                                {{ Form::submit('Edit', array('class' => 'btn text-primary float-right px-1 cm-links')) }}
+                                                {{ Form::close() }}
+
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
                     <div class="mt-5" id="commentSection">
                         <h1 style="border-bottom: 2px solid;color:#fd5927">Leave a Comment</h1>
 
                         @if(Auth::user())
-                            @foreach($comments as $key => $value)
-                                @if(Auth::user()->username === $value->commenter)
-                            <div class="card mb-2 cm-card bg-dark ">
-                                <div class="card-body">
-                                    <h4 class="card-title text-white font-weight-bold">{{ $value->commenter }}</h4>
-
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ $value->created_at->diffForHumans() }}</h6>
-
-                                    <p class="card-text text-light">{{ $value->content }}</p>
-                                    <div class="">
-                                        {{ Form::open(array('url' => '/comment/' . $value->id)) }}
-                                        {{ Form::hidden('_method', 'delete') }}
-                                        {{ Form::submit('Delete', array('class' => 'btn text-danger float-right px-1 cm-links', 'style'=>'margin-left: 5px;')) }}
-                                        {{ Form::close() }}
-
-                                        {{ Form::open(array('url' => '/comment/' . $value->id, 'method' => 'put')) }}
-                                        {{ Form::submit('Edit', array('class' => 'btn text-primary float-right px-1 cm-links')) }}
-                                        {{ Form::close() }}
-
-                                </div>
-                            </div>
+                            @if(session('content'))
+                                {{ Form::open(array('url' => '/comment/update/' . session('id'),'method' => 'put',
+                                 'class' => 'contact-form', 'style'=>"margin-top: 20px")) }}
+                                {{Form::textarea('content', session('content'), array('class' => 'form-row form-group form-control comment-form',
+                                 'required cols'=>"85"))}}
+                                {{ Form::hidden('blog', $post->id) }}
+                                {{ Form::hidden('blog', $post->id) }}
                             @else
-                            <div class="card mb-2 cm-card bg-dark ">
-                                <div class="card-body">
-                                    <h4 class="card-title text-white font-weight-bold">{{ $value->commenter }}</h4>
-
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ $value->created_at->diffForHumans() }}</h6>
-
-                                    <p class="card-text text-light">{{ $value->content }}</p>
-                                </div>
-                            </div>
-                                @endif
-                            @endforeach
-
-                                @if(session('content'))
-                                    {{ Form::open(array('url' => '/comment/update/' . session('id'),'method' => 'put',
-                                     'class' => 'contact-form', 'style'=>"margin-top: 20px")) }}
-                                    {{Form::textarea('content', session('content'), array('class' => 'form-row form-group form-control comment-form',
-                                     'required cols'=>"85"))}}
-                                    {{ Form::hidden('blog', $post->id) }}
-                                    {{ Form::hidden('blog', $post->id) }}
-                                @else
-                                    {{ Form::open(array('url' => '/comment', 'class' => 'contact-form', 'style'=>"margin-top: 20px")) }}
-                                    {{Form::textarea('content', null, array('class' => 'form-row form-group form-control comment-form', 'required cols'=>"85"))}}
-                                    {{ Form::hidden('blog', $post->id) }}
-                                @endif
+                                {{ Form::open(array('url' => '/comment', 'class' => 'contact-form', 'style'=>"margin-top: 20px")) }}
+                                {{Form::textarea('content', null, array('class' => 'form-row form-group form-control comment-form', 'required cols'=>"85"))}}
+                                {{ Form::hidden('blog', $post->id) }}
+                            @endif
 
                             {{ Form::submit('Comment', array('class' => 'btn button')) }}
                             {{ Form::close() }}
                         @else
                             <p class="text-white" style="font-size:28px">Sign In to comment on this post</p>
                         @endif
-
                     </div>
-
                 </div>
+
 
                 @include('discography')
 
